@@ -13,7 +13,7 @@
 
 ---
 
-## 🚀 Step 1: Connect to Snowflake (5 minutes)
+## Step 1: Connect to Snowflake (5 minutes)
 
 ### 1.1 Open Power BI Desktop
 - Launch Power BI Desktop
@@ -51,7 +51,7 @@ Warehouse: COMPUTE_WH
 
 ---
 
-## 📊 Step 2: Import Tables (5 minutes)
+## Step 2: Import Tables (5 minutes)
 
 ### 2.1 Navigate to Schema
 1. In the Navigator window, expand your database
@@ -59,11 +59,11 @@ Warehouse: COMPUTE_WH
 
 ### 2.2 Select Tables
 Check the boxes next to these 5 tables (all UPPERCASE):
-- ✅ `FCT_FIVETRAN_CONNECTOR_HEALTH`
-- ✅ `FCT_FIVETRAN_SYNC_PERFORMANCE`
-- ✅ `FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS`
-- ✅ `FCT_FIVETRAN_ERROR_MONITORING`
-- ✅ `FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY`
+- `FCT_FIVETRAN_CONNECTOR_HEALTH`
+- `FCT_FIVETRAN_SYNC_PERFORMANCE`
+- `FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS`
+- `FCT_FIVETRAN_ERROR_MONITORING`
+- `FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY`
 
 ### 2.3 Load or Transform Data
 **Option 1: Quick Load (Fastest)**
@@ -203,7 +203,7 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 ---
 
-## 🎨 Step 6: Build Your First Dashboard (10 minutes)
+## Step 6: Build Your First Dashboard (10 minutes)
 
 ### 6.1 Create New Report Page
 - Click **Report** view (left sidebar)
@@ -292,7 +292,7 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 ---
 
-## 🎨 Step 7: Apply Formatting (3 minutes)
+## Step 7: Apply Formatting (3 minutes)
 
 ### 7.1 Apply Theme Colors
 1. Click **View** → **Themes** → **Customize current theme**
@@ -319,7 +319,7 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 ---
 
-## ✅ Step 8: Test & Validate (3 minutes)
+## Step 8: Test and Validate (3 minutes)
 
 ### 8.1 Test Filters
 - Select different date ranges in the slicer
@@ -358,41 +358,41 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 ---
 
-## 🎉 You're Done!
+## Completion
 
 You now have a working Fivetran analytics dashboard with:
-- ✅ 4 KPI cards showing key metrics
-- ✅ Health trend line chart
-- ✅ MAR by connector bar chart
-- ✅ Recent errors table
-- ✅ Interactive filters
-- ✅ Fivetran brand colors
+- 4 KPI cards showing key metrics
+- Health trend line chart
+- MAR by connector bar chart
+- Recent errors table
+- Interactive filters
+- Fivetran brand colors
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 ### Immediate
-1. ✅ Add more measures from `fivetran_measures.dax`
-2. ✅ Create conditional formatting on tables
-3. ✅ Add drill-through pages for detailed analysis
-4. ✅ Set up scheduled refresh (if published)
+1. Add more measures from `fivetran_measures.dax`
+2. Create conditional formatting on tables
+3. Add drill-through pages for detailed analysis
+4. Set up scheduled refresh (if published)
 
 ### This Week
-1. ✅ Build additional dashboard pages (see `POWERBI_GUIDE.md`)
-2. ✅ Add more advanced visuals (matrix, treemap, scatter)
-3. ✅ Create bookmarks for different views
-4. ✅ Share with stakeholders
+1. Build additional dashboard pages (see `POWERBI_GUIDE.md`)
+2. Add more advanced visuals (matrix, treemap, scatter)
+3. Create bookmarks for different views
+4. Share with stakeholders
 
 ### This Month
-1. ✅ Build all 5 dashboard templates
-2. ✅ Set up data alerts on critical metrics
-3. ✅ Create mobile layouts
-4. ✅ Implement Row-Level Security (if needed)
+1. Build all 5 dashboard templates
+2. Set up data alerts on critical metrics
+3. Create mobile layouts
+4. Implement Row-Level Security (if needed)
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 - **[POWERBI_GUIDE.md](../POWERBI_GUIDE.md)** - Complete dashboard templates
 - **[METRICS_CATALOG.md](METRICS_CATALOG.md)** - All 60+ DAX measures
@@ -400,7 +400,7 @@ You now have a working Fivetran analytics dashboard with:
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Can't Connect to Snowflake
 - Verify account name format: `account.region.snowflakecomputing.com`
@@ -434,7 +434,7 @@ You now have a working Fivetran analytics dashboard with:
 
 ---
 
-## 📧 Need Help?
+## Need Help?
 
 - **Email**: jason.chletsos@fivetran.com
 - **Documentation**: See other files in `powerbi/` folder
@@ -444,4 +444,4 @@ You now have a working Fivetran analytics dashboard with:
 
 **Total Time**: ~30 minutes  
 **Difficulty**: Beginner  
-**Result**: Production-ready dashboard! 🎉
+**Result**: Production-ready dashboard.

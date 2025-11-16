@@ -1,59 +1,59 @@
-# ✅ Setup Complete - Fivetran Analytics dbt Project
+# Setup Complete - Fivetran Analytics dbt Project
 
 **Date**: November 16, 2025  
-**Status**: ✅ All models successfully built  
+**Status**: All models successfully built  
 **Total Models**: 47 (36 views + 11 tables)
 
 ---
 
-## 📊 Database Objects Created
+## Database Objects Created
 
 ### Schema: `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS`
 
 All objects use **UPPERCASE naming** (Snowflake standard):
 
 #### Fact Tables (11 tables)
-1. ✅ **FCT_FIVETRAN_CONNECTOR_HEALTH** - 76 rows
+1. **FCT_FIVETRAN_CONNECTOR_HEALTH** - 76 rows
    - Health metrics for all connectors
    - Success rates, sync counts, duration stats
 
-2. ✅ **FCT_FIVETRAN_SYNC_PERFORMANCE** - 145 rows
+2. **FCT_FIVETRAN_SYNC_PERFORMANCE** - 145 rows
    - Individual sync performance records
    - Duration, status, rows synced
 
-3. ✅ **FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS** - 1,299,780 rows
+3. **FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS** - 1,299,780 rows
    - MAR tracking by connector and month
    - Free vs paid rows breakdown
 
-4. ✅ **FCT_FIVETRAN_ERROR_MONITORING** - 1 row
+4. **FCT_FIVETRAN_ERROR_MONITORING** - 1 row
    - Error tracking and categorization
    - Error types, timestamps, messages
 
-5. ✅ **FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY** - 0 rows
+5. **FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY** - 0 rows
    - Schema change tracking
    - Column/table changes over time
 
-6. ✅ **FCT_FIVETRAN_CONNECTOR_RECOMMENDATIONS** - 76 rows
+6. **FCT_FIVETRAN_CONNECTOR_RECOMMENDATIONS** - 76 rows
    - Optimization recommendations
    - Health scores and action items
 
-7. ✅ **FCT_FIVETRAN_PROBLEMATIC_CONNECTORS** - 76 rows
+7. **FCT_FIVETRAN_PROBLEMATIC_CONNECTORS** - 76 rows
    - Connectors with issues
    - Failure patterns and trends
 
-8. ✅ **FCT_FIVETRAN_SYNC_PERFORMANCE_TRENDS** - 98 rows
+8. **FCT_FIVETRAN_SYNC_PERFORMANCE_TRENDS** - 98 rows
    - Performance trends over time
    - Moving averages and comparisons
 
-9. ✅ **FCT_FIVETRAN_EXECUTIVE_DASHBOARD** - 1 row
+9. **FCT_FIVETRAN_EXECUTIVE_DASHBOARD** - 1 row
    - High-level summary metrics
    - KPIs for leadership
 
-10. ✅ **FCT_FIVETRAN_DAILY_API_USAGE** - 0 rows
+10. **FCT_FIVETRAN_DAILY_API_USAGE** - 0 rows
     - API call tracking
     - Usage by endpoint and user
 
-11. ✅ **FCT_FIVETRAN_USER_ACTIVITY** - 0 rows
+11. **FCT_FIVETRAN_USER_ACTIVITY** - 0 rows
     - User action tracking
     - Audit trail for governance
 
@@ -63,7 +63,7 @@ All objects use **UPPERCASE naming** (Snowflake standard):
 
 ---
 
-## 🔌 Power BI Connection Details
+## Power BI Connection Details
 
 ### Connection String
 ```
@@ -94,7 +94,7 @@ All column names are **UPPERCASE** (Snowflake standard):
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 dbt-fivetran-logs/
@@ -118,7 +118,7 @@ dbt-fivetran-logs/
 
 ---
 
-## 🎯 Key Configuration
+## Key Configuration
 
 ### dbt_project.yml
 ```yaml
@@ -141,7 +141,7 @@ models:
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 ### 1. Connect Power BI (30 minutes)
 Follow the guide: `powerbi/QUICK_START.md`
@@ -174,7 +174,7 @@ Follow the guide: `powerbi/QUICK_START.md`
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 ### Power BI Guides
 - **[QUICK_START.md](powerbi/QUICK_START.md)** - Get started in 30 minutes
@@ -187,7 +187,7 @@ Follow the guide: `powerbi/QUICK_START.md`
 
 ---
 
-## ✅ Verification Checklist
+## Verification Checklist
 
 - [x] All 47 dbt models built successfully
 - [x] Schema `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS` created
@@ -199,7 +199,7 @@ Follow the guide: `powerbi/QUICK_START.md`
 
 ---
 
-## 🔍 Sample Queries
+## Sample Queries
 
 ### Check Table Row Counts
 ```sql
@@ -252,7 +252,7 @@ LIMIT 10;
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Tables Not Found
 - Verify schema name is `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS` (UPPERCASE)
@@ -272,7 +272,7 @@ LIMIT 10;
 
 ---
 
-## 📧 Support
+## Support
 
 **Contact**: jason.chletsos@fivetran.com  
 **Documentation**: See `powerbi/` folder for all guides  
@@ -280,12 +280,12 @@ LIMIT 10;
 
 ---
 
-## 🎉 Success!
+## Summary
 
 Your Fivetran analytics dbt project is fully configured and ready for Power BI!
 
 **Build Time**: ~12 seconds  
 **Total Models**: 47  
-**Status**: ✅ Production Ready
+**Status**: Production Ready
 
 **Next**: Open `powerbi/QUICK_START.md` and build your first dashboard in 30 minutes!

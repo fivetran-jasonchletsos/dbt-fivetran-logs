@@ -28149,3 +28149,1194 @@ order by recommendation_score desc
 [0m12:56:44.861556 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x123b3d070>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117e71580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11790b050>]}
 [0m12:56:44.861719 [debug] [MainThread]: Flushing usage events
 [0m12:56:44.950345 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:02:25.899250 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106113140>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x123a6ffb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x123a6fce0>]}
+
+
+============================== 14:02:25.902769 | f02fbe7a-055c-4ef5-897f-20465ba603ce ==============================
+[0m14:02:25.902769 [info ] [MainThread]: Running with dbt=1.9.0
+[0m14:02:25.903031 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/logs', 'debug': 'False', 'profiles_dir': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run -s fct_fivetran_error_monitoring', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m14:02:26.283928 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f02fbe7a-055c-4ef5-897f-20465ba603ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x123a6d640>]}
+[0m14:02:26.305494 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f02fbe7a-055c-4ef5-897f-20465ba603ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x134890e00>]}
+[0m14:02:26.305963 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
+[0m14:02:26.367826 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m14:02:26.429030 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:02:26.429240 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:02:26.432229 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_fivetran_logs.example
+[0m14:02:26.452807 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f02fbe7a-055c-4ef5-897f-20465ba603ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x13561c2c0>]}
+[0m14:02:26.498980 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:02:26.500766 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:02:26.541800 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f02fbe7a-055c-4ef5-897f-20465ba603ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x136210590>]}
+[0m14:02:26.542083 [info ] [MainThread]: Found 47 models, 4 analyses, 53 data tests, 32 sources, 480 macros
+[0m14:02:26.542262 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f02fbe7a-055c-4ef5-897f-20465ba603ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1344d5520>]}
+[0m14:02:26.543348 [info ] [MainThread]: 
+[0m14:02:26.543486 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:02:26.543591 [info ] [MainThread]: 
+[0m14:02:26.543798 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:02:26.544178 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS'
+[0m14:02:26.570893 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS"
+[0m14:02:26.571070 [debug] [ThreadPool]: On list_JASON_CHLETSOS: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS"} */
+show terse schemas in database JASON_CHLETSOS
+    limit 10000
+[0m14:02:26.571183 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:02:29.498502 [debug] [ThreadPool]: SQL status: SUCCESS 54 in 2.927 seconds
+[0m14:02:29.508100 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS, now list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log)
+[0m14:02:29.515137 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs'
+[0m14:02:29.527715 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"
+[0m14:02:29.528197 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"
+[0m14:02:29.528465 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log'
+[0m14:02:29.528647 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs limit 10000;
+[0m14:02:29.528844 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_int_fivetran_log limit 10000;
+[0m14:02:29.529973 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"
+[0m14:02:29.530125 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:02:29.530622 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log limit 10000;
+[0m14:02:29.579979 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:02:29.807726 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.277 seconds
+[0m14:02:32.204523 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 2.674 seconds
+[0m14:02:32.268036 [debug] [ThreadPool]: SQL status: SUCCESS 32 in 2.688 seconds
+[0m14:02:32.275502 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f02fbe7a-055c-4ef5-897f-20465ba603ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1362b6240>]}
+[0m14:02:32.277212 [debug] [Thread-1 (]: Began running node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:02:32.277696 [info ] [Thread-1 (]: 1 of 1 START sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring  [RUN]
+[0m14:02:32.278149 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dbt_fivetran_logs.fct_fivetran_error_monitoring'
+[0m14:02:32.278421 [debug] [Thread-1 (]: Began compiling node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:02:32.286419 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"
+[0m14:02:32.287244 [debug] [Thread-1 (]: Began executing node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:02:32.306647 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"
+[0m14:02:32.308340 [debug] [Thread-1 (]: Using snowflake connection "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"
+[0m14:02:32.308603 [debug] [Thread-1 (]: On model.dbt_fivetran_logs.fct_fivetran_error_monitoring: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"} */
+create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring
+         as
+        (
+
+with sync_performance as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_sync_performance
+    -- Remove date filter to include all data
+),
+
+connector_details as (
+    select * from JASON_CHLETSOS.fivetran_analytics_int_fivetran_log.int_fivetran_log__connector_details
+),
+
+-- Get error logs - include SEVERE and WARNING events
+error_logs as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__log
+    where event_type IN ('SEVERE', 'WARNING')
+),
+
+-- Get failed syncs
+failed_syncs as (
+    select
+        sync_id,
+        connection_name,
+        connector_name,
+        sync_start_time,
+        sync_end_time,
+        sync_date,
+        rows_synced
+    from sync_performance
+    where sync_status = 'error'
+),
+
+-- Create simple error types based on sync failures
+sync_errors as (
+    select
+        fs.sync_id,
+        fs.connection_name,
+        fs.connector_name,
+        fs.sync_start_time,
+        fs.sync_end_time,
+        fs.sync_date,
+        fs.rows_synced,
+        'Sync Failure' as error_message,
+        'Sync Error' as error_type
+    from failed_syncs fs
+),
+
+-- Identify recurring errors
+recurring_errors as (
+    select
+        connection_name,
+        connector_name,
+        error_type,
+        count(*) as occurrence_count
+    from sync_errors
+    group by 1, 2, 3
+    having count(*) > 1
+),
+
+-- Flag recurring errors
+flagged_errors as (
+    select
+        se.*,
+        case when re.connection_name is not null then true else false end as is_recurring_error,
+        coalesce(re.occurrence_count, 1) as error_occurrence_count
+    from sync_errors se
+    left join recurring_errors re 
+        on se.connection_name = re.connection_name
+        and se.connector_name = re.connector_name
+        and se.error_type = re.error_type
+)
+
+select * from flagged_errors
+order by sync_start_time desc
+        );
+[0m14:02:32.308840 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:02:33.757236 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.448 seconds
+[0m14:02:33.781281 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f02fbe7a-055c-4ef5-897f-20465ba603ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x122412570>]}
+[0m14:02:33.781794 [info ] [Thread-1 (]: 1 of 1 OK created sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring  [[32mSUCCESS 1[0m in 1.50s]
+[0m14:02:33.782175 [debug] [Thread-1 (]: Finished running node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:02:33.783078 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:02:33.783325 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log' was left open.
+[0m14:02:33.783614 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: Close
+[0m14:02:33.949441 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs' was left open.
+[0m14:02:33.950080 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: Close
+[0m14:02:34.089825 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log' was left open.
+[0m14:02:34.090632 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: Close
+[0m14:02:34.228378 [debug] [MainThread]: Connection 'model.dbt_fivetran_logs.fct_fivetran_error_monitoring' was left open.
+[0m14:02:34.228890 [debug] [MainThread]: On model.dbt_fivetran_logs.fct_fivetran_error_monitoring: Close
+[0m14:02:34.362874 [info ] [MainThread]: 
+[0m14:02:34.363544 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 7.82 seconds (7.82s).
+[0m14:02:34.364601 [debug] [MainThread]: Command end result
+[0m14:02:34.398466 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:02:34.399845 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:02:34.403523 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/run_results.json
+[0m14:02:34.403723 [info ] [MainThread]: 
+[0m14:02:34.403938 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:02:34.404089 [info ] [MainThread]: 
+[0m14:02:34.404245 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m14:02:34.407006 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 8.545087, "process_in_blocks": "0", "process_kernel_time": 0.276155, "process_mem_max_rss": "233783296", "process_out_blocks": "0", "process_user_time": 1.713211}
+[0m14:02:34.407241 [debug] [MainThread]: Command `dbt run` succeeded at 14:02:34.407192 after 8.55 seconds
+[0m14:02:34.407426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x122e42ea0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1362ecbc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x122450c20>]}
+[0m14:02:34.407605 [debug] [MainThread]: Flushing usage events
+[0m14:02:34.581517 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:13:23.206968 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107befce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107c1e4e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107c1e450>]}
+
+
+============================== 14:13:23.210957 | cbf5b7c8-17c5-4375-b3f0-e2d68b079b57 ==============================
+[0m14:13:23.210957 [info ] [MainThread]: Running with dbt=1.9.0
+[0m14:13:23.211246 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt run -s fct_fivetran_schema_change_history', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:13:23.625439 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'cbf5b7c8-17c5-4375-b3f0-e2d68b079b57', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1087113a0>]}
+[0m14:13:23.646913 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'cbf5b7c8-17c5-4375-b3f0-e2d68b079b57', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107b5efc0>]}
+[0m14:13:23.647363 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
+[0m14:13:23.706419 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m14:13:23.766944 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:13:23.767139 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:13:23.770119 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_fivetran_logs.example
+[0m14:13:23.790411 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'cbf5b7c8-17c5-4375-b3f0-e2d68b079b57', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f3764b0>]}
+[0m14:13:23.838047 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:13:23.839200 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:13:23.881531 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'cbf5b7c8-17c5-4375-b3f0-e2d68b079b57', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c4ff20>]}
+[0m14:13:23.881779 [info ] [MainThread]: Found 47 models, 4 analyses, 53 data tests, 32 sources, 480 macros
+[0m14:13:23.881939 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'cbf5b7c8-17c5-4375-b3f0-e2d68b079b57', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f848ce0>]}
+[0m14:13:23.883016 [info ] [MainThread]: 
+[0m14:13:23.883158 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:13:23.883268 [info ] [MainThread]: 
+[0m14:13:23.883477 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:13:23.883825 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS'
+[0m14:13:23.906920 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS"
+[0m14:13:23.907117 [debug] [ThreadPool]: On list_JASON_CHLETSOS: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS"} */
+show terse schemas in database JASON_CHLETSOS
+    limit 10000
+[0m14:13:23.907223 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:13:26.827296 [debug] [ThreadPool]: SQL status: SUCCESS 54 in 2.920 seconds
+[0m14:13:26.838116 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS, now list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs)
+[0m14:13:26.838749 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log'
+[0m14:13:26.844981 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log'
+[0m14:13:26.852555 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"
+[0m14:13:26.854102 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"
+[0m14:13:26.855557 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"
+[0m14:13:26.855781 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs limit 10000;
+[0m14:13:26.855968 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_int_fivetran_log limit 10000;
+[0m14:13:26.856125 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log limit 10000;
+[0m14:13:26.856482 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:13:26.856690 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:13:27.078234 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 0.222 seconds
+[0m14:13:29.398623 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.542 seconds
+[0m14:13:29.433747 [debug] [ThreadPool]: SQL status: SUCCESS 32 in 2.577 seconds
+[0m14:13:29.442412 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'cbf5b7c8-17c5-4375-b3f0-e2d68b079b57', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108710770>]}
+[0m14:13:29.444292 [debug] [Thread-1 (]: Began running node model.dbt_fivetran_logs.fct_fivetran_schema_change_history
+[0m14:13:29.444882 [info ] [Thread-1 (]: 1 of 1 START sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_schema_change_history  [RUN]
+[0m14:13:29.446083 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dbt_fivetran_logs.fct_fivetran_schema_change_history'
+[0m14:13:29.446457 [debug] [Thread-1 (]: Began compiling node model.dbt_fivetran_logs.fct_fivetran_schema_change_history
+[0m14:13:29.454143 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_fivetran_logs.fct_fivetran_schema_change_history"
+[0m14:13:29.456120 [debug] [Thread-1 (]: Began executing node model.dbt_fivetran_logs.fct_fivetran_schema_change_history
+[0m14:13:29.476035 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_fivetran_logs.fct_fivetran_schema_change_history"
+[0m14:13:29.478707 [debug] [Thread-1 (]: Using snowflake connection "model.dbt_fivetran_logs.fct_fivetran_schema_change_history"
+[0m14:13:29.478984 [debug] [Thread-1 (]: On model.dbt_fivetran_logs.fct_fivetran_schema_change_history: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "model.dbt_fivetran_logs.fct_fivetran_schema_change_history"} */
+create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_schema_change_history
+         as
+        (
+
+with connector_details as (
+    select * from JASON_CHLETSOS.fivetran_analytics_int_fivetran_log.int_fivetran_log__connector_details
+),
+
+-- Get column change events
+column_change_events as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__destination_column_change_event
+),
+
+-- Get table change events
+table_change_events as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__destination_table_change_event
+),
+
+-- Get schema change events
+schema_change_events as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__destination_schema_change_event
+),
+
+-- Get column details for enrichment
+destination_columns as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__destination_column
+),
+
+-- Get table details for enrichment
+destination_tables as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__destination_table
+),
+
+-- Get schema details for enrichment
+destination_schemas as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__destination_schema
+),
+
+-- Process column changes
+column_changes as (
+    select
+        cce.change_detected_at,
+        cce.connection_id,
+        'Column Change' as change_category,
+        cce.change_type,
+        ds.schema_name,
+        dt.table_name,
+        dc.column_name,
+        cce.attribute_name,
+        cce.new_value as new_value,
+        null as previous_value
+    from column_change_events cce
+    left join destination_columns dc on cce.destination_column_id = dc.destination_column_id
+    left join destination_tables dt on dc.destination_table_id = dt.destination_table_id
+    left join destination_schemas ds on dt.destination_schema_id = ds.destination_schema_id
+),
+
+-- Process table changes
+table_changes as (
+    select
+        tce.change_detected_at,
+        tce.connection_id,
+        'Table Change' as change_category,
+        tce.change_type,
+        ds.schema_name,
+        dt.table_name,
+        null as column_name,
+        null as attribute_name,
+        null as new_value,
+        null as previous_value
+    from table_change_events tce
+    left join destination_tables dt on tce.destination_table_id = dt.destination_table_id
+    left join destination_schemas ds on dt.destination_schema_id = ds.destination_schema_id
+),
+
+-- Process schema changes
+schema_changes as (
+    select
+        sce.change_detected_at,
+        sce.connection_id,
+        'Schema Change' as change_category,
+        sce.change_type,
+        ds.schema_name,
+        null as table_name,
+        null as column_name,
+        null as attribute_name,
+        null as new_value,
+        null as previous_value
+    from schema_change_events sce
+    left join destination_schemas ds on sce.destination_schema_id = ds.destination_schema_id
+),
+
+-- Union all change types - NO FILTERING
+all_changes as (
+    select * from column_changes
+    union all
+    select * from table_changes
+    union all
+    select * from schema_changes
+),
+
+-- Enrich with connector information
+enriched_schema_changes as (
+    select
+        ac.change_detected_at,
+        cd.connection_name,
+        cd.connector_name,
+        cd.destination_name,
+        ac.change_category,
+        ac.change_type,
+        ac.schema_name,
+        ac.table_name,
+        ac.column_name,
+        ac.attribute_name,
+        ac.new_value,
+        ac.previous_value,
+        date_trunc('day', ac.change_detected_at) as change_date
+    from all_changes ac
+    left join connector_details cd on ac.connection_id = cd.connection_id
+)
+
+select * from enriched_schema_changes
+order by change_detected_at desc
+        );
+[0m14:13:29.479268 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:13:35.825575 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 6.346 seconds
+[0m14:13:35.850636 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'cbf5b7c8-17c5-4375-b3f0-e2d68b079b57', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107bb27e0>]}
+[0m14:13:35.851136 [info ] [Thread-1 (]: 1 of 1 OK created sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_schema_change_history  [[32mSUCCESS 1[0m in 6.40s]
+[0m14:13:35.851517 [debug] [Thread-1 (]: Finished running node model.dbt_fivetran_logs.fct_fivetran_schema_change_history
+[0m14:13:35.852506 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:13:35.852742 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs' was left open.
+[0m14:13:35.852934 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: Close
+[0m14:13:35.974466 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log' was left open.
+[0m14:13:35.974937 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: Close
+[0m14:13:36.104444 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log' was left open.
+[0m14:13:36.105054 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: Close
+[0m14:13:36.233779 [debug] [MainThread]: Connection 'model.dbt_fivetran_logs.fct_fivetran_schema_change_history' was left open.
+[0m14:13:36.234688 [debug] [MainThread]: On model.dbt_fivetran_logs.fct_fivetran_schema_change_history: Close
+[0m14:13:36.356296 [info ] [MainThread]: 
+[0m14:13:36.356908 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 12.47 seconds (12.47s).
+[0m14:13:36.357698 [debug] [MainThread]: Command end result
+[0m14:13:36.393545 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:13:36.394807 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:13:36.398112 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/run_results.json
+[0m14:13:36.398281 [info ] [MainThread]: 
+[0m14:13:36.398488 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:13:36.398631 [info ] [MainThread]: 
+[0m14:13:36.398781 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m14:13:36.401433 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 13.231426, "process_in_blocks": "0", "process_kernel_time": 0.279653, "process_mem_max_rss": "232718336", "process_out_blocks": "0", "process_user_time": 1.717813}
+[0m14:13:36.401652 [debug] [MainThread]: Command `dbt run` succeeded at 14:13:36.401609 after 13.23 seconds
+[0m14:13:36.401825 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1084ab530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b6c3020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ecb3710>]}
+[0m14:13:36.402002 [debug] [MainThread]: Flushing usage events
+[0m14:13:36.619058 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:13:43.914752 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111928830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110b3e0f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110b3e000>]}
+
+
+============================== 14:13:43.917358 | 2edcdc4c-76ef-49b0-a962-a7cc9dda8f68 ==============================
+[0m14:13:43.917358 [info ] [MainThread]: Running with dbt=1.9.0
+[0m14:13:43.917618 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs', 'debug': 'False', 'version_check': 'True', 'log_path': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run -s fct_fivetran_user_activity', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m14:13:44.280572 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2edcdc4c-76ef-49b0-a962-a7cc9dda8f68', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x121024590>]}
+[0m14:13:44.303134 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2edcdc4c-76ef-49b0-a962-a7cc9dda8f68', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110459e20>]}
+[0m14:13:44.303589 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
+[0m14:13:44.361678 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m14:13:44.421511 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:13:44.421735 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:13:44.424944 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_fivetran_logs.example
+[0m14:13:44.445344 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2edcdc4c-76ef-49b0-a962-a7cc9dda8f68', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1209897c0>]}
+[0m14:13:44.492659 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:13:44.493803 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:13:44.532876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2edcdc4c-76ef-49b0-a962-a7cc9dda8f68', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1228d7fe0>]}
+[0m14:13:44.533121 [info ] [MainThread]: Found 47 models, 4 analyses, 53 data tests, 32 sources, 480 macros
+[0m14:13:44.533276 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2edcdc4c-76ef-49b0-a962-a7cc9dda8f68', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1253a3800>]}
+[0m14:13:44.534284 [info ] [MainThread]: 
+[0m14:13:44.534422 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:13:44.534526 [info ] [MainThread]: 
+[0m14:13:44.534727 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:13:44.535099 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS'
+[0m14:13:44.555566 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS"
+[0m14:13:44.555761 [debug] [ThreadPool]: On list_JASON_CHLETSOS: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS"} */
+show terse schemas in database JASON_CHLETSOS
+    limit 10000
+[0m14:13:44.555868 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:13:45.106502 [debug] [ThreadPool]: SQL status: SUCCESS 54 in 0.550 seconds
+[0m14:13:45.116730 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS, now list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log)
+[0m14:13:45.124865 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs'
+[0m14:13:45.137227 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"
+[0m14:13:45.137586 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log'
+[0m14:13:45.138107 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"
+[0m14:13:45.138351 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs limit 10000;
+[0m14:13:45.139533 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"
+[0m14:13:45.139711 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_int_fivetran_log limit 10000;
+[0m14:13:45.139867 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:13:45.140022 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log limit 10000;
+[0m14:13:45.190136 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:13:45.383610 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.243 seconds
+[0m14:13:45.649910 [debug] [ThreadPool]: SQL status: SUCCESS 32 in 0.460 seconds
+[0m14:13:45.689728 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 0.550 seconds
+[0m14:13:45.693685 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2edcdc4c-76ef-49b0-a962-a7cc9dda8f68', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1228ffaa0>]}
+[0m14:13:45.695045 [debug] [Thread-1 (]: Began running node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:13:45.695481 [info ] [Thread-1 (]: 1 of 1 START sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_user_activity  [RUN]
+[0m14:13:45.695938 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log, now model.dbt_fivetran_logs.fct_fivetran_user_activity)
+[0m14:13:45.696340 [debug] [Thread-1 (]: Began compiling node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:13:45.702574 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_fivetran_logs.fct_fivetran_user_activity"
+[0m14:13:45.703180 [debug] [Thread-1 (]: Began executing node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:13:45.723593 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_fivetran_logs.fct_fivetran_user_activity"
+[0m14:13:45.725433 [debug] [Thread-1 (]: Using snowflake connection "model.dbt_fivetran_logs.fct_fivetran_user_activity"
+[0m14:13:45.725679 [debug] [Thread-1 (]: On model.dbt_fivetran_logs.fct_fivetran_user_activity: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "model.dbt_fivetran_logs.fct_fivetran_user_activity"} */
+create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_user_activity
+         as
+        (
+
+with audit_trail as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__audit_trail
+),
+
+users as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__user
+),
+
+connector_details as (
+    select * from JASON_CHLETSOS.fivetran_analytics_int_fivetran_log.int_fivetran_log__connector_details
+),
+
+-- Get all audit trail events - NO FILTERING
+user_activity_events as (
+    select
+        at.event_created_at,
+        at.user_id,
+        at.event_type as action_type,
+        at.resource_type,
+        at.resource_id,
+        at.secondary_resource_type,
+        at.secondary_resource_id,
+        at.interaction_method,
+        at.old_values,
+        at.new_values
+    from audit_trail at
+),
+
+-- Aggregate by date and user
+aggregated_activity as (
+    select
+        date_trunc('day', event_created_at) as activity_date,
+        user_id,
+        action_type,
+        resource_type,
+        resource_id as resource_name,
+        secondary_resource_type,
+        secondary_resource_id as secondary_resource_name,
+        interaction_method,
+        count(*) as activity_count
+    from user_activity_events
+    group by 1, 2, 3, 4, 5, 6, 7, 8
+),
+
+-- Enrich with user information
+enriched_user_activity as (
+    select
+        aa.activity_date,
+        coalesce(aa.user_id, 'unknown') as user_id,
+        coalesce(u.email, 'unknown') as user_email,
+        coalesce(concat(u.first_name, ' ', u.last_name), 'Unknown User') as user_name,
+        u.role as user_role,
+        aa.action_type,
+        aa.resource_type,
+        aa.resource_name,
+        aa.secondary_resource_type,
+        aa.secondary_resource_name,
+        aa.interaction_method,
+        aa.activity_count
+    from aggregated_activity aa
+    left join users u on aa.user_id = u.user_id
+)
+
+select * from enriched_user_activity
+order by activity_date desc, user_email, action_type
+        );
+[0m14:13:45.946059 [debug] [Thread-1 (]: Snowflake adapter: Snowflake query id: 01c06f81-0007-2084-0003-03521547eaa2
+[0m14:13:45.946645 [debug] [Thread-1 (]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 56 at position 8
+invalid identifier 'U.ROLE'
+[0m14:13:45.950510 [debug] [Thread-1 (]: Database Error in model fct_fivetran_user_activity (models/marts/governance/fct_fivetran_user_activity.sql)
+  000904 (42000): SQL compilation error: error line 56 at position 8
+  invalid identifier 'U.ROLE'
+  compiled code at target/run/dbt_fivetran_logs/models/marts/governance/fct_fivetran_user_activity.sql
+[0m14:13:45.952110 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2edcdc4c-76ef-49b0-a962-a7cc9dda8f68', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110b11c40>]}
+[0m14:13:45.952722 [error] [Thread-1 (]: 1 of 1 ERROR creating sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_user_activity  [[31mERROR[0m in 0.26s]
+[0m14:13:45.953249 [debug] [Thread-1 (]: Finished running node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:13:45.953763 [debug] [Thread-7 (]: Marking all children of 'model.dbt_fivetran_logs.fct_fivetran_user_activity' to be skipped because of status 'error'.  Reason: Database Error in model fct_fivetran_user_activity (models/marts/governance/fct_fivetran_user_activity.sql)
+  000904 (42000): SQL compilation error: error line 56 at position 8
+  invalid identifier 'U.ROLE'
+  compiled code at target/run/dbt_fivetran_logs/models/marts/governance/fct_fivetran_user_activity.sql.
+[0m14:13:45.955471 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:13:45.955734 [debug] [MainThread]: Connection 'model.dbt_fivetran_logs.fct_fivetran_user_activity' was left open.
+[0m14:13:45.955960 [debug] [MainThread]: On model.dbt_fivetran_logs.fct_fivetran_user_activity: Close
+[0m14:13:46.075362 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs' was left open.
+[0m14:13:46.075955 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: Close
+[0m14:13:46.203096 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log' was left open.
+[0m14:13:46.203292 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: Close
+[0m14:13:46.314797 [info ] [MainThread]: 
+[0m14:13:46.315084 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 1.78 seconds (1.78s).
+[0m14:13:46.315454 [debug] [MainThread]: Command end result
+[0m14:13:46.338004 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:13:46.339065 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:13:46.341620 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/run_results.json
+[0m14:13:46.341749 [info ] [MainThread]: 
+[0m14:13:46.341904 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m14:13:46.342023 [info ] [MainThread]: 
+[0m14:13:46.342169 [error] [MainThread]:   Database Error in model fct_fivetran_user_activity (models/marts/governance/fct_fivetran_user_activity.sql)
+  000904 (42000): SQL compilation error: error line 56 at position 8
+  invalid identifier 'U.ROLE'
+  compiled code at target/run/dbt_fivetran_logs/models/marts/governance/fct_fivetran_user_activity.sql
+[0m14:13:46.342279 [info ] [MainThread]: 
+[0m14:13:46.342397 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[0m14:13:46.344417 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 2.4693158, "process_in_blocks": "0", "process_kernel_time": 0.219096, "process_mem_max_rss": "231735296", "process_out_blocks": "0", "process_user_time": 1.496177}
+[0m14:13:46.344599 [debug] [MainThread]: Command `dbt run` failed at 14:13:46.344563 after 2.47 seconds
+[0m14:13:46.344752 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110b3e0f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111a1d880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12109eff0>]}
+[0m14:13:46.344885 [debug] [MainThread]: Flushing usage events
+[0m14:13:46.409582 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:21:50.004257 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105e111f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d77e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d77b30>]}
+
+
+============================== 14:21:50.007019 | 3c4662ee-e5d7-4ef2-a722-9096cdb420fd ==============================
+[0m14:21:50.007019 [info ] [MainThread]: Running with dbt=1.9.0
+[0m14:21:50.007290 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs', 'log_path': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run -s fct_fivetran_user_activity', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:21:50.374620 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3c4662ee-e5d7-4ef2-a722-9096cdb420fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10603c860>]}
+[0m14:21:50.395935 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3c4662ee-e5d7-4ef2-a722-9096cdb420fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fc86ba0>]}
+[0m14:21:50.396364 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
+[0m14:21:50.455565 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m14:21:50.515997 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:21:50.516202 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:21:50.519168 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_fivetran_logs.example
+[0m14:21:50.539418 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3c4662ee-e5d7-4ef2-a722-9096cdb420fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1188fb530>]}
+[0m14:21:50.585409 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:21:50.586591 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:21:50.625998 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3c4662ee-e5d7-4ef2-a722-9096cdb420fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104cd7da0>]}
+[0m14:21:50.626251 [info ] [MainThread]: Found 47 models, 4 analyses, 53 data tests, 32 sources, 480 macros
+[0m14:21:50.626409 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3c4662ee-e5d7-4ef2-a722-9096cdb420fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c43ef30>]}
+[0m14:21:50.627592 [info ] [MainThread]: 
+[0m14:21:50.627739 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:21:50.627855 [info ] [MainThread]: 
+[0m14:21:50.628066 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:21:50.628433 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS'
+[0m14:21:50.651229 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS"
+[0m14:21:50.651427 [debug] [ThreadPool]: On list_JASON_CHLETSOS: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS"} */
+show terse schemas in database JASON_CHLETSOS
+    limit 10000
+[0m14:21:50.651535 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:53.891517 [debug] [ThreadPool]: SQL status: SUCCESS 54 in 3.240 seconds
+[0m14:21:53.902159 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS, now list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs)
+[0m14:21:53.902782 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log'
+[0m14:21:53.909158 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log'
+[0m14:21:53.916749 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"
+[0m14:21:53.918219 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"
+[0m14:21:53.919642 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"
+[0m14:21:53.919866 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs limit 10000;
+[0m14:21:53.920043 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_int_fivetran_log limit 10000;
+[0m14:21:53.920196 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log limit 10000;
+[0m14:21:53.920725 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:53.921091 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:54.128922 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 0.209 seconds
+[0m14:21:56.572921 [debug] [ThreadPool]: SQL status: SUCCESS 32 in 2.652 seconds
+[0m14:21:56.574103 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.653 seconds
+[0m14:21:56.585270 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3c4662ee-e5d7-4ef2-a722-9096cdb420fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11982a330>]}
+[0m14:21:56.587471 [debug] [Thread-1 (]: Began running node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:21:56.587966 [info ] [Thread-1 (]: 1 of 1 START sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_user_activity  [RUN]
+[0m14:21:56.588355 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs, now model.dbt_fivetran_logs.fct_fivetran_user_activity)
+[0m14:21:56.588636 [debug] [Thread-1 (]: Began compiling node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:21:56.595696 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_fivetran_logs.fct_fivetran_user_activity"
+[0m14:21:56.596368 [debug] [Thread-1 (]: Began executing node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:21:56.616456 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_fivetran_logs.fct_fivetran_user_activity"
+[0m14:21:56.618123 [debug] [Thread-1 (]: Using snowflake connection "model.dbt_fivetran_logs.fct_fivetran_user_activity"
+[0m14:21:56.618356 [debug] [Thread-1 (]: On model.dbt_fivetran_logs.fct_fivetran_user_activity: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "model.dbt_fivetran_logs.fct_fivetran_user_activity"} */
+create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_user_activity
+         as
+        (
+
+with audit_trail as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__audit_trail
+),
+
+users as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__user
+),
+
+connector_details as (
+    select * from JASON_CHLETSOS.fivetran_analytics_int_fivetran_log.int_fivetran_log__connector_details
+),
+
+-- Get all audit trail events - NO FILTERING
+user_activity_events as (
+    select
+        at.event_created_at,
+        at.user_id,
+        at.event_type as action_type,
+        at.resource_type,
+        at.resource_id,
+        at.secondary_resource_type,
+        at.secondary_resource_id,
+        at.interaction_method,
+        at.old_values,
+        at.new_values
+    from audit_trail at
+),
+
+-- Aggregate by date and user
+aggregated_activity as (
+    select
+        date_trunc('day', event_created_at) as activity_date,
+        user_id,
+        action_type,
+        resource_type,
+        resource_id as resource_name,
+        secondary_resource_type,
+        secondary_resource_id as secondary_resource_name,
+        interaction_method,
+        count(*) as activity_count
+    from user_activity_events
+    group by 1, 2, 3, 4, 5, 6, 7, 8
+),
+
+-- Enrich with user information
+enriched_user_activity as (
+    select
+        aa.activity_date,
+        coalesce(aa.user_id, 'unknown') as user_id,
+        coalesce(u.email, 'unknown') as user_email,
+        coalesce(concat(u.first_name, ' ', u.last_name), 'Unknown User') as user_name,
+        aa.action_type,
+        aa.resource_type,
+        aa.resource_name,
+        aa.secondary_resource_type,
+        aa.secondary_resource_name,
+        aa.interaction_method,
+        aa.activity_count
+    from aggregated_activity aa
+    left join users u on aa.user_id = u.user_id
+)
+
+select * from enriched_user_activity
+order by activity_date desc, user_email, action_type
+        );
+[0m14:21:59.129705 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 2.511 seconds
+[0m14:21:59.152608 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3c4662ee-e5d7-4ef2-a722-9096cdb420fd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103ce9400>]}
+[0m14:21:59.153132 [info ] [Thread-1 (]: 1 of 1 OK created sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_user_activity  [[32mSUCCESS 1[0m in 2.56s]
+[0m14:21:59.153558 [debug] [Thread-1 (]: Finished running node model.dbt_fivetran_logs.fct_fivetran_user_activity
+[0m14:21:59.154454 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:21:59.154674 [debug] [MainThread]: Connection 'model.dbt_fivetran_logs.fct_fivetran_user_activity' was left open.
+[0m14:21:59.154856 [debug] [MainThread]: On model.dbt_fivetran_logs.fct_fivetran_user_activity: Close
+[0m14:21:59.294629 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log' was left open.
+[0m14:21:59.295602 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: Close
+[0m14:21:59.415767 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log' was left open.
+[0m14:21:59.416383 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: Close
+[0m14:21:59.550439 [info ] [MainThread]: 
+[0m14:21:59.551088 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 8.92 seconds (8.92s).
+[0m14:21:59.552442 [debug] [MainThread]: Command end result
+[0m14:21:59.589945 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:21:59.591252 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:21:59.594633 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/run_results.json
+[0m14:21:59.594811 [info ] [MainThread]: 
+[0m14:21:59.595016 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:21:59.595163 [info ] [MainThread]: 
+[0m14:21:59.595315 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m14:21:59.597893 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 9.632546, "process_in_blocks": "0", "process_kernel_time": 0.265842, "process_mem_max_rss": "232292352", "process_out_blocks": "0", "process_user_time": 1.621703}
+[0m14:21:59.598126 [debug] [MainThread]: Command `dbt run` succeeded at 14:21:59.598076 after 9.63 seconds
+[0m14:21:59.598295 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106d77cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106050c20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1060504d0>]}
+[0m14:21:59.598464 [debug] [MainThread]: Flushing usage events
+[0m14:21:59.756211 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:22:06.405267 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107aaa480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10713e270>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10713e1e0>]}
+
+
+============================== 14:22:06.407945 | c4653621-8226-42bf-a013-428b06391fd5 ==============================
+[0m14:22:06.407945 [info ] [MainThread]: Running with dbt=1.9.0
+[0m14:22:06.408213 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs', 'log_path': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt run -s fct_fivetran_executive_dashboard', 'send_anonymous_usage_stats': 'True'}
+[0m14:22:06.766949 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c4653621-8226-42bf-a013-428b06391fd5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fcbd550>]}
+[0m14:22:06.789033 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c4653621-8226-42bf-a013-428b06391fd5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fa6aba0>]}
+[0m14:22:06.789546 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
+[0m14:22:06.850607 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m14:22:06.910122 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:22:06.910338 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:22:06.913520 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_fivetran_logs.example
+[0m14:22:06.933589 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c4653621-8226-42bf-a013-428b06391fd5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fe3eff0>]}
+[0m14:22:06.980358 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:22:06.981523 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:22:07.021502 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c4653621-8226-42bf-a013-428b06391fd5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105812240>]}
+[0m14:22:07.021750 [info ] [MainThread]: Found 47 models, 4 analyses, 53 data tests, 32 sources, 480 macros
+[0m14:22:07.021913 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c4653621-8226-42bf-a013-428b06391fd5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f17b30>]}
+[0m14:22:07.022961 [info ] [MainThread]: 
+[0m14:22:07.023096 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:22:07.023204 [info ] [MainThread]: 
+[0m14:22:07.023414 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:22:07.023756 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS'
+[0m14:22:07.043949 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS"
+[0m14:22:07.044172 [debug] [ThreadPool]: On list_JASON_CHLETSOS: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS"} */
+show terse schemas in database JASON_CHLETSOS
+    limit 10000
+[0m14:22:07.044298 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:22:07.603104 [debug] [ThreadPool]: SQL status: SUCCESS 54 in 0.558 seconds
+[0m14:22:07.614323 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS, now list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs)
+[0m14:22:07.621288 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log'
+[0m14:22:07.624462 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"
+[0m14:22:07.626183 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"
+[0m14:22:07.626471 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log'
+[0m14:22:07.626747 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs limit 10000;
+[0m14:22:07.626978 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_int_fivetran_log limit 10000;
+[0m14:22:07.628596 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"
+[0m14:22:07.629284 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:22:07.629692 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log limit 10000;
+[0m14:22:07.630224 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:22:07.922372 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 0.293 seconds
+[0m14:22:08.139282 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.510 seconds
+[0m14:22:08.140517 [debug] [ThreadPool]: SQL status: SUCCESS 32 in 0.510 seconds
+[0m14:22:08.149185 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c4653621-8226-42bf-a013-428b06391fd5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fcbca40>]}
+[0m14:22:08.150702 [debug] [Thread-1 (]: Began running node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:22:08.151117 [info ] [Thread-1 (]: 1 of 1 START sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_executive_dashboard  [RUN]
+[0m14:22:08.151473 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs, now model.dbt_fivetran_logs.fct_fivetran_executive_dashboard)
+[0m14:22:08.151730 [debug] [Thread-1 (]: Began compiling node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:22:08.159503 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"
+[0m14:22:08.160203 [debug] [Thread-1 (]: Began executing node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:22:08.179463 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"
+[0m14:22:08.181730 [debug] [Thread-1 (]: Using snowflake connection "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"
+[0m14:22:08.182020 [debug] [Thread-1 (]: On model.dbt_fivetran_logs.fct_fivetran_executive_dashboard: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"} */
+create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_executive_dashboard
+         as
+        (
+
+with connector_health as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_connector_health
+),
+
+monthly_active_rows as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_monthly_active_rows
+),
+
+error_monitoring as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring
+    -- Remove date filter to include all data
+),
+
+-- Calculate connector health metrics
+connector_health_metrics as (
+    select
+        current_date() as report_date,
+        count(distinct connection_name) as total_connectors,
+        sum(case when last_sync_status = 'success' then 1 else 0 end) as healthy_connectors,
+        sum(case when last_sync_status = 'error' then 1 else 0 end) as failing_connectors,
+        (sum(case when last_sync_status = 'success' then 1 else 0 end) / 
+         nullif(count(distinct connection_name), 0)) * 100 as connector_health_percentage
+    from connector_health
+),
+
+-- Calculate active rows metrics
+active_rows_metrics as (
+    select
+        current_date() as report_date,
+        sum(total_active_rows) as total_active_rows,
+        sum(paid_active_rows) as paid_active_rows,
+        sum(free_active_rows) as free_active_rows
+    from monthly_active_rows
+    -- Use the most recent month if available
+    where month_date = (select max(month_date) from monthly_active_rows)
+),
+
+-- Calculate error metrics
+error_metrics as (
+    select
+        current_date() as report_date,
+        count(*) as total_errors,
+        count(distinct connection_name) as connectors_with_errors,
+        count(distinct case when is_recurring_error then connection_name else null end) as connectors_with_recurring_errors
+    from error_monitoring
+),
+
+-- Combine all metrics
+executive_dashboard as (
+    select
+        chm.report_date,
+        chm.total_connectors,
+        chm.healthy_connectors,
+        chm.failing_connectors,
+        chm.connector_health_percentage,
+        coalesce(arm.total_active_rows, 0) as total_active_rows,
+        coalesce(arm.paid_active_rows, 0) as paid_active_rows,
+        coalesce(arm.free_active_rows, 0) as free_active_rows,
+        coalesce(em.total_errors, 0) as total_errors,
+        coalesce(em.connectors_with_errors, 0) as connectors_with_errors,
+        coalesce(em.connectors_with_recurring_errors, 0) as connectors_with_recurring_errors
+    from connector_health_metrics chm
+    left join active_rows_metrics arm on chm.report_date = arm.report_date
+    left join error_metrics em on chm.report_date = em.report_date
+)
+
+select * from executive_dashboard
+        );
+[0m14:22:09.838370 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.656 seconds
+[0m14:22:09.862085 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c4653621-8226-42bf-a013-428b06391fd5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b68d190>]}
+[0m14:22:09.862638 [info ] [Thread-1 (]: 1 of 1 OK created sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_executive_dashboard  [[32mSUCCESS 1[0m in 1.71s]
+[0m14:22:09.863079 [debug] [Thread-1 (]: Finished running node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:22:09.864021 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:22:09.864246 [debug] [MainThread]: Connection 'model.dbt_fivetran_logs.fct_fivetran_executive_dashboard' was left open.
+[0m14:22:09.864428 [debug] [MainThread]: On model.dbt_fivetran_logs.fct_fivetran_executive_dashboard: Close
+[0m14:22:09.987654 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log' was left open.
+[0m14:22:09.988131 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: Close
+[0m14:22:10.131312 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log' was left open.
+[0m14:22:10.132081 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: Close
+[0m14:22:10.254458 [info ] [MainThread]: 
+[0m14:22:10.255164 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 3.23 seconds (3.23s).
+[0m14:22:10.255971 [debug] [MainThread]: Command end result
+[0m14:22:10.292559 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:22:10.293803 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:22:10.297197 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/run_results.json
+[0m14:22:10.297361 [info ] [MainThread]: 
+[0m14:22:10.297556 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:22:10.297691 [info ] [MainThread]: 
+[0m14:22:10.297834 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m14:22:10.300222 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 3.931145, "process_in_blocks": "0", "process_kernel_time": 0.220271, "process_mem_max_rss": "232488960", "process_out_blocks": "0", "process_user_time": 1.532572}
+[0m14:22:10.300439 [debug] [MainThread]: Command `dbt run` succeeded at 14:22:10.300395 after 3.93 seconds
+[0m14:22:10.300609 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106b9b0e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108173680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1186104a0>]}
+[0m14:22:10.300773 [debug] [MainThread]: Flushing usage events
+[0m14:22:10.367691 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:23:27.175794 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1052f44a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10723e270>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10723c2f0>]}
+
+
+============================== 14:23:27.179901 | 3ef28438-150d-4d19-92b2-81a405b1f2c3 ==============================
+[0m14:23:27.179901 [info ] [MainThread]: Running with dbt=1.9.0
+[0m14:23:27.180172 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs', 'debug': 'False', 'version_check': 'True', 'log_path': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run -s fct_fivetran_error_monitoring', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m14:23:27.681760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3ef28438-150d-4d19-92b2-81a405b1f2c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12355b0e0>]}
+[0m14:23:27.703680 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3ef28438-150d-4d19-92b2-81a405b1f2c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x163a5bd10>]}
+[0m14:23:27.704488 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
+[0m14:23:27.767443 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m14:23:27.844305 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:23:27.844548 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:23:27.847860 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_fivetran_logs.example
+[0m14:23:27.868575 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3ef28438-150d-4d19-92b2-81a405b1f2c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x164630050>]}
+[0m14:23:27.915950 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:23:27.917442 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:23:27.963347 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3ef28438-150d-4d19-92b2-81a405b1f2c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x167410290>]}
+[0m14:23:27.963609 [info ] [MainThread]: Found 47 models, 4 analyses, 53 data tests, 32 sources, 480 macros
+[0m14:23:27.963761 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3ef28438-150d-4d19-92b2-81a405b1f2c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x167410230>]}
+[0m14:23:27.964841 [info ] [MainThread]: 
+[0m14:23:27.964984 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:23:27.965094 [info ] [MainThread]: 
+[0m14:23:27.965300 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:23:27.965651 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS'
+[0m14:23:27.992312 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS"
+[0m14:23:27.992495 [debug] [ThreadPool]: On list_JASON_CHLETSOS: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS"} */
+show terse schemas in database JASON_CHLETSOS
+    limit 10000
+[0m14:23:27.992594 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:23:30.844992 [debug] [ThreadPool]: SQL status: SUCCESS 54 in 2.852 seconds
+[0m14:23:30.853317 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS, now list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs)
+[0m14:23:30.860020 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log'
+[0m14:23:30.863793 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"
+[0m14:23:30.864985 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"
+[0m14:23:30.865238 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log'
+[0m14:23:30.865446 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs limit 10000;
+[0m14:23:30.865631 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_int_fivetran_log limit 10000;
+[0m14:23:30.866658 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"
+[0m14:23:30.867006 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:23:30.867240 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log limit 10000;
+[0m14:23:30.915875 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:23:31.146959 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 0.280 seconds
+[0m14:23:33.372540 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.505 seconds
+[0m14:23:33.467984 [debug] [ThreadPool]: SQL status: SUCCESS 32 in 2.552 seconds
+[0m14:23:33.475378 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3ef28438-150d-4d19-92b2-81a405b1f2c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x16a6b5fa0>]}
+[0m14:23:33.477566 [debug] [Thread-1 (]: Began running node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:23:33.478055 [info ] [Thread-1 (]: 1 of 1 START sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring  [RUN]
+[0m14:23:33.478898 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs, now model.dbt_fivetran_logs.fct_fivetran_error_monitoring)
+[0m14:23:33.479184 [debug] [Thread-1 (]: Began compiling node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:23:33.487408 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"
+[0m14:23:33.488906 [debug] [Thread-1 (]: Began executing node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:23:33.508311 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"
+[0m14:23:33.510497 [debug] [Thread-1 (]: Using snowflake connection "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"
+[0m14:23:33.510964 [debug] [Thread-1 (]: On model.dbt_fivetran_logs.fct_fivetran_error_monitoring: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "model.dbt_fivetran_logs.fct_fivetran_error_monitoring"} */
+create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring
+         as
+        (
+
+with sync_performance as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_sync_performance
+),
+
+connector_details as (
+    select * from JASON_CHLETSOS.fivetran_analytics_int_fivetran_log.int_fivetran_log__connector_details
+),
+
+-- Get all error and warning logs - NO FILTERING
+error_logs as (
+    select * from JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log.stg_fivetran_log__log
+    where event_type IN ('SEVERE', 'WARNING')
+),
+
+-- Process all error logs with enrichment
+all_errors as (
+    select
+        el.log_id,
+        el.sync_id,
+        el.logged_at as error_timestamp,
+        el.connection_id,
+        el.event_type,
+        el.message_type,
+        el.message_content as error_message,
+        -- Categorize error types
+        case
+            when el.event_type = 'SEVERE' and el.message_type = 'sync_end' then 'Sync Failure'
+            when el.event_type = 'SEVERE' and el.message_type = 'connection_failure' then 'Connection Failure'
+            when el.event_type = 'WARNING' and el.message_type = 'transformation_failed' then 'Transformation Failed'
+            when el.event_type = 'WARNING' and el.message_type = 'warning' then 'General Warning'
+            when el.event_type = 'WARNING' and el.message_type = 'forced_resync_table' then 'Forced Resync'
+            when el.event_type = 'WARNING' then 'Warning - ' || el.message_type
+            when el.event_type = 'SEVERE' then 'Severe - ' || el.message_type
+            else 'Other Error'
+        end as error_type,
+        date_trunc('day', el.logged_at) as error_date
+    from error_logs el
+),
+
+-- Enrich with connector information
+enriched_errors as (
+    select
+        ae.log_id,
+        ae.sync_id,
+        ae.error_timestamp,
+        ae.error_date,
+        coalesce(cd.connection_name, 'Unknown') as connection_name,
+        coalesce(cd.connector_name, 'Unknown') as connector_name,
+        coalesce(cd.destination_name, 'Unknown') as destination_name,
+        ae.event_type as severity,
+        ae.error_type,
+        ae.message_type,
+        ae.error_message
+    from all_errors ae
+    left join connector_details cd on ae.connection_id = cd.connection_id
+),
+
+-- Identify recurring errors
+recurring_errors as (
+    select
+        connection_name,
+        connector_name,
+        error_type,
+        count(*) as occurrence_count
+    from enriched_errors
+    group by 1, 2, 3
+    having count(*) > 1
+),
+
+-- Flag recurring errors
+flagged_errors as (
+    select
+        ee.*,
+        case when re.connection_name is not null then true else false end as is_recurring_error,
+        coalesce(re.occurrence_count, 1) as error_occurrence_count
+    from enriched_errors ee
+    left join recurring_errors re 
+        on ee.connection_name = re.connection_name
+        and ee.connector_name = re.connector_name
+        and ee.error_type = re.error_type
+)
+
+select * from flagged_errors
+order by error_timestamp desc
+        );
+[0m14:23:35.033829 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.522 seconds
+[0m14:23:35.053401 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3ef28438-150d-4d19-92b2-81a405b1f2c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d41910>]}
+[0m14:23:35.053926 [info ] [Thread-1 (]: 1 of 1 OK created sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring  [[32mSUCCESS 1[0m in 1.57s]
+[0m14:23:35.054344 [debug] [Thread-1 (]: Finished running node model.dbt_fivetran_logs.fct_fivetran_error_monitoring
+[0m14:23:35.055269 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:23:35.055497 [debug] [MainThread]: Connection 'model.dbt_fivetran_logs.fct_fivetran_error_monitoring' was left open.
+[0m14:23:35.055684 [debug] [MainThread]: On model.dbt_fivetran_logs.fct_fivetran_error_monitoring: Close
+[0m14:23:35.168722 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log' was left open.
+[0m14:23:35.169310 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: Close
+[0m14:23:35.287946 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log' was left open.
+[0m14:23:35.288416 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: Close
+[0m14:23:35.399437 [info ] [MainThread]: 
+[0m14:23:35.400087 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 7.43 seconds (7.43s).
+[0m14:23:35.400653 [debug] [MainThread]: Command end result
+[0m14:23:35.431913 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:23:35.433191 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:23:35.436382 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/run_results.json
+[0m14:23:35.436568 [info ] [MainThread]: 
+[0m14:23:35.436775 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:23:35.436907 [info ] [MainThread]: 
+[0m14:23:35.437049 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m14:23:35.439675 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 8.303696, "process_in_blocks": "0", "process_kernel_time": 0.302053, "process_mem_max_rss": "236191744", "process_out_blocks": "0", "process_user_time": 1.617841}
+[0m14:23:35.439930 [debug] [MainThread]: Command `dbt run` succeeded at 14:23:35.439879 after 8.30 seconds
+[0m14:23:35.440109 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104b15190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1674e5970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1639851c0>]}
+[0m14:23:35.440275 [debug] [MainThread]: Flushing usage events
+[0m14:23:35.628002 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:23:52.863600 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108a43440>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108262180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108262210>]}
+
+
+============================== 14:23:52.866283 | fc49f289-eb15-4a9c-8468-f5cb8fc1f038 ==============================
+[0m14:23:52.866283 [info ] [MainThread]: Running with dbt=1.9.0
+[0m14:23:52.866541 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/logs', 'fail_fast': 'False', 'profiles_dir': '/Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'invocation_command': 'dbt run -s fct_fivetran_executive_dashboard', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m14:23:53.231898 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fc49f289-eb15-4a9c-8468-f5cb8fc1f038', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12ad9d8e0>]}
+[0m14:23:53.252920 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fc49f289-eb15-4a9c-8468-f5cb8fc1f038', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b4e7d70>]}
+[0m14:23:53.253374 [info ] [MainThread]: Registered adapter: snowflake=1.9.0
+[0m14:23:53.313158 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m14:23:53.373002 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:23:53.373208 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:23:53.376215 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_fivetran_logs.example
+[0m14:23:53.396801 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fc49f289-eb15-4a9c-8468-f5cb8fc1f038', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12ae94e00>]}
+[0m14:23:53.443717 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:23:53.444888 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:23:53.485250 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'fc49f289-eb15-4a9c-8468-f5cb8fc1f038', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10720e150>]}
+[0m14:23:53.485536 [info ] [MainThread]: Found 47 models, 4 analyses, 53 data tests, 32 sources, 480 macros
+[0m14:23:53.485695 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fc49f289-eb15-4a9c-8468-f5cb8fc1f038', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12b4f3890>]}
+[0m14:23:53.486894 [info ] [MainThread]: 
+[0m14:23:53.487039 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:23:53.487144 [info ] [MainThread]: 
+[0m14:23:53.487355 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m14:23:53.487719 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS'
+[0m14:23:53.510661 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS"
+[0m14:23:53.510921 [debug] [ThreadPool]: On list_JASON_CHLETSOS: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS"} */
+show terse schemas in database JASON_CHLETSOS
+    limit 10000
+[0m14:23:53.511049 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:23:56.281145 [debug] [ThreadPool]: SQL status: SUCCESS 54 in 2.770 seconds
+[0m14:23:56.291687 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_JASON_CHLETSOS, now list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log)
+[0m14:23:56.292362 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log'
+[0m14:23:56.298824 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs'
+[0m14:23:56.306983 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"
+[0m14:23:56.308472 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"
+[0m14:23:56.309794 [debug] [ThreadPool]: Using snowflake connection "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"
+[0m14:23:56.310003 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_stg_fivetran_log limit 10000;
+[0m14:23:56.310191 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_int_fivetran_log limit 10000;
+[0m14:23:56.310375 [debug] [ThreadPool]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "connection_name": "list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs"} */
+show objects in JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs limit 10000;
+[0m14:23:56.310778 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:23:56.311277 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:23:56.516931 [debug] [ThreadPool]: SQL status: SUCCESS 32 in 0.206 seconds
+[0m14:23:58.848706 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.538 seconds
+[0m14:23:58.854325 [debug] [ThreadPool]: SQL status: SUCCESS 11 in 2.543 seconds
+[0m14:23:58.858232 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fc49f289-eb15-4a9c-8468-f5cb8fc1f038', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12acad3a0>]}
+[0m14:23:58.860070 [debug] [Thread-1 (]: Began running node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:23:58.860609 [info ] [Thread-1 (]: 1 of 1 START sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_executive_dashboard  [RUN]
+[0m14:23:58.861279 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.dbt_fivetran_logs.fct_fivetran_executive_dashboard'
+[0m14:23:58.861632 [debug] [Thread-1 (]: Began compiling node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:23:58.869338 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"
+[0m14:23:58.870609 [debug] [Thread-1 (]: Began executing node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:23:58.891553 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"
+[0m14:23:58.893501 [debug] [Thread-1 (]: Using snowflake connection "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"
+[0m14:23:58.893749 [debug] [Thread-1 (]: On model.dbt_fivetran_logs.fct_fivetran_executive_dashboard: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "default", "target_name": "dev", "node_id": "model.dbt_fivetran_logs.fct_fivetran_executive_dashboard"} */
+create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_executive_dashboard
+         as
+        (
+
+with connector_health as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_connector_health
+),
+
+monthly_active_rows as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_monthly_active_rows
+),
+
+error_monitoring as (
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring
+    -- Remove date filter to include all data
+),
+
+-- Calculate connector health metrics
+connector_health_metrics as (
+    select
+        current_date() as report_date,
+        count(distinct connection_name) as total_connectors,
+        sum(case when last_sync_status = 'success' then 1 else 0 end) as healthy_connectors,
+        sum(case when last_sync_status = 'error' then 1 else 0 end) as failing_connectors,
+        (sum(case when last_sync_status = 'success' then 1 else 0 end) / 
+         nullif(count(distinct connection_name), 0)) * 100 as connector_health_percentage
+    from connector_health
+),
+
+-- Calculate active rows metrics
+active_rows_metrics as (
+    select
+        current_date() as report_date,
+        sum(total_active_rows) as total_active_rows,
+        sum(paid_active_rows) as paid_active_rows,
+        sum(free_active_rows) as free_active_rows
+    from monthly_active_rows
+    -- Use the most recent month if available
+    where month_date = (select max(month_date) from monthly_active_rows)
+),
+
+-- Calculate error metrics
+error_metrics as (
+    select
+        current_date() as report_date,
+        count(*) as total_errors,
+        count(distinct connection_name) as connectors_with_errors,
+        count(distinct case when is_recurring_error then connection_name else null end) as connectors_with_recurring_errors
+    from error_monitoring
+),
+
+-- Combine all metrics
+executive_dashboard as (
+    select
+        chm.report_date,
+        chm.total_connectors,
+        chm.healthy_connectors,
+        chm.failing_connectors,
+        chm.connector_health_percentage,
+        coalesce(arm.total_active_rows, 0) as total_active_rows,
+        coalesce(arm.paid_active_rows, 0) as paid_active_rows,
+        coalesce(arm.free_active_rows, 0) as free_active_rows,
+        coalesce(em.total_errors, 0) as total_errors,
+        coalesce(em.connectors_with_errors, 0) as connectors_with_errors,
+        coalesce(em.connectors_with_recurring_errors, 0) as connectors_with_recurring_errors
+    from connector_health_metrics chm
+    left join active_rows_metrics arm on chm.report_date = arm.report_date
+    left join error_metrics em on chm.report_date = em.report_date
+)
+
+select * from executive_dashboard
+        );
+[0m14:23:58.893969 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:24:00.560196 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.666 seconds
+[0m14:24:00.586517 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fc49f289-eb15-4a9c-8468-f5cb8fc1f038', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10823a4e0>]}
+[0m14:24:00.587027 [info ] [Thread-1 (]: 1 of 1 OK created sql table model fivetran_analytics_fct_fivetran_logs.fct_fivetran_executive_dashboard  [[32mSUCCESS 1[0m in 1.72s]
+[0m14:24:00.587419 [debug] [Thread-1 (]: Finished running node model.dbt_fivetran_logs.fct_fivetran_executive_dashboard
+[0m14:24:00.588352 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:24:00.588583 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log' was left open.
+[0m14:24:00.588772 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_stg_fivetran_log: Close
+[0m14:24:00.700111 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log' was left open.
+[0m14:24:00.700621 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_int_fivetran_log: Close
+[0m14:24:00.845339 [debug] [MainThread]: Connection 'list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs' was left open.
+[0m14:24:00.845920 [debug] [MainThread]: On list_JASON_CHLETSOS_fivetran_analytics_fct_fivetran_logs: Close
+[0m14:24:00.972202 [debug] [MainThread]: Connection 'model.dbt_fivetran_logs.fct_fivetran_executive_dashboard' was left open.
+[0m14:24:00.973027 [debug] [MainThread]: On model.dbt_fivetran_logs.fct_fivetran_executive_dashboard: Close
+[0m14:24:01.103461 [info ] [MainThread]: 
+[0m14:24:01.104367 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 7.62 seconds (7.62s).
+[0m14:24:01.105183 [debug] [MainThread]: Command end result
+[0m14:24:01.141360 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/manifest.json
+[0m14:24:01.142605 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/semantic_manifest.json
+[0m14:24:01.146036 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jason.chletsos/Documents/GitHub/dbt-fivetran-logs/target/run_results.json
+[0m14:24:01.146230 [info ] [MainThread]: 
+[0m14:24:01.146445 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:24:01.146595 [info ] [MainThread]: 
+[0m14:24:01.146754 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m14:24:01.149418 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 8.32542, "process_in_blocks": "0", "process_kernel_time": 0.272559, "process_mem_max_rss": "233586688", "process_out_blocks": "0", "process_user_time": 1.713137}
+[0m14:24:01.149650 [debug] [MainThread]: Command `dbt run` succeeded at 14:24:01.149605 after 8.33 seconds
+[0m14:24:01.149825 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f8b5c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108a43440>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12ae94050>]}
+[0m14:24:01.149993 [debug] [MainThread]: Flushing usage events
+[0m14:24:01.219616 [debug] [MainThread]: An error was encountered while trying to flush usage events
