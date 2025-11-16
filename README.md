@@ -7,6 +7,7 @@ A comprehensive dbt project for analyzing Fivetran log data.
 - **[QUICKSTART.md](QUICKSTART.md)** - ⚡ Get started in 5 minutes!
 - **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Detailed overview of analytics capabilities
 - **[MODEL_REFERENCE.md](MODEL_REFERENCE.md)** - Complete model documentation and use cases
+- **[POWERBI_GUIDE.md](POWERBI_GUIDE.md)** - 📊 Power BI dashboard setup and DAX measures
 - **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Step-by-step setup instructions
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Development and contribution guidelines
 - **[PRIVATE_KEY_SETUP.md](PRIVATE_KEY_SETUP.md)** - Private key configuration guide

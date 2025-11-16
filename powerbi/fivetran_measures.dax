@@ -1,0 +1,305 @@
+-- ============================================================================
+-- FIVETRAN LOG ANALYTICS - DAX MEASURES
+-- ============================================================================
+-- Copy and paste these measures into Power BI Desktop
+-- File > Options > Data Load > Enable "Copy and paste from Excel and other sources"
+-- Then paste into the "New Measure" dialog or directly into the Fields pane
+-- ============================================================================
+
+-- ============================================================================
+-- CORE KPI MEASURES
+-- ============================================================================
+
+-- Connector Health Metrics
+Total Connectors = DISTINCTCOUNT(fct_fivetran_connector_health[connection_id])
+
+Healthy Connectors = 
+CALCULATE(
+    DISTINCTCOUNT(fct_fivetran_connector_health[connection_id]),
+    fct_fivetran_connector_health[success_rate_last_7d] >= 0.95
+)
+
+Health Percentage = 
+DIVIDE([Healthy Connectors], [Total Connectors], 0)
+
+Connectors at Risk = 
+CALCULATE(
+    DISTINCTCOUNT(fct_fivetran_connector_health[connection_id]),
+    fct_fivetran_connector_health[success_rate_last_7d] < 0.80
+)
+
+-- ============================================================================
+-- SYNC PERFORMANCE MEASURES
+-- ============================================================================
+
+Total Syncs = COUNTROWS(fct_fivetran_sync_performance)
+
+Successful Syncs = 
+CALCULATE(
+    COUNTROWS(fct_fivetran_sync_performance),
+    fct_fivetran_sync_performance[sync_status] = "SUCCESS"
+)
+
+Failed Syncs = 
+CALCULATE(
+    COUNTROWS(fct_fivetran_sync_performance),
+    fct_fivetran_sync_performance[sync_status] = "FAILURE"
+)
+
+Success Rate = 
+DIVIDE([Successful Syncs], [Total Syncs], 0)
+
+Avg Sync Duration (min) = 
+AVERAGE(fct_fivetran_sync_performance[sync_duration_minutes])
+
+Median Sync Duration (min) = 
+MEDIAN(fct_fivetran_sync_performance[sync_duration_minutes])
+
+P95 Sync Duration (min) = 
+PERCENTILEX.INC(
+    fct_fivetran_sync_performance, 
+    fct_fivetran_sync_performance[sync_duration_minutes], 
+    0.95
+)
+
+Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
+
+Rows Per Minute = 
+DIVIDE(
+    [Rows Synced],
+    SUM(fct_fivetran_sync_performance[sync_duration_minutes]),
+    0
+)
+
+-- ============================================================================
+-- COST & USAGE MEASURES (MAR)
+-- ============================================================================
+
+Total MAR = SUM(fct_fivetran_monthly_active_rows[total_active_rows])
+
+Paid MAR = SUM(fct_fivetran_monthly_active_rows[paid_active_rows])
+
+Free MAR = SUM(fct_fivetran_monthly_active_rows[free_active_rows])
+
+Paid MAR % = 
+DIVIDE([Paid MAR], [Total MAR], 0)
+
+MAR Growth MoM = 
+VAR CurrentMonth = [Total MAR]
+VAR PreviousMonth = 
+    CALCULATE(
+        [Total MAR],
+        DATEADD(fct_fivetran_monthly_active_rows[month_date], -1, MONTH)
+    )
+RETURN
+    DIVIDE(CurrentMonth - PreviousMonth, PreviousMonth, 0)
+
+MAR Growth YoY = 
+VAR CurrentYear = [Total MAR]
+VAR PreviousYear = 
+    CALCULATE(
+        [Total MAR],
+        DATEADD(fct_fivetran_monthly_active_rows[month_date], -1, YEAR)
+    )
+RETURN
+    DIVIDE(CurrentYear - PreviousYear, PreviousYear, 0)
+
+Avg MAR per Connector = 
+DIVIDE(
+    [Total MAR], 
+    DISTINCTCOUNT(fct_fivetran_monthly_active_rows[connection_name])
+)
+
+Estimated Monthly Cost = 
+VAR CostPerMillionMAR = 100
+RETURN
+    ([Paid MAR] / 1000000) * CostPerMillionMAR
+
+-- ============================================================================
+-- ERROR & QUALITY MEASURES
+-- ============================================================================
+
+Total Errors = COUNTROWS(fct_fivetran_error_monitoring)
+
+Recurring Errors = 
+CALCULATE(
+    COUNTROWS(fct_fivetran_error_monitoring),
+    fct_fivetran_error_monitoring[is_recurring_error] = TRUE()
+)
+
+Error Rate = 
+DIVIDE([Total Errors], [Total Syncs], 0)
+
+Unique Error Types = 
+DISTINCTCOUNT(fct_fivetran_error_monitoring[error_type])
+
+Connectors with Errors = 
+DISTINCTCOUNT(fct_fivetran_error_monitoring[connection_name])
+
+MTTR (hours) = 
+AVERAGE(fct_fivetran_error_monitoring[resolution_time_hours])
+
+-- ============================================================================
+-- SCHEMA CHANGE MEASURES
+-- ============================================================================
+
+Total Schema Changes = 
+COUNTROWS(fct_fivetran_schema_change_history)
+
+Breaking Changes = 
+CALCULATE(
+    COUNTROWS(fct_fivetran_schema_change_history),
+    fct_fivetran_schema_change_history[change_type] IN {"DROP", "ALTER"}
+)
+
+Non-Breaking Changes = 
+CALCULATE(
+    COUNTROWS(fct_fivetran_schema_change_history),
+    fct_fivetran_schema_change_history[change_type] = "ADD"
+)
+
+Tables Affected = 
+DISTINCTCOUNT(fct_fivetran_schema_change_history[table_name])
+
+Connections with Changes = 
+DISTINCTCOUNT(fct_fivetran_schema_change_history[connection_name])
+
+-- ============================================================================
+-- TIME INTELLIGENCE MEASURES
+-- ============================================================================
+
+Syncs Last 7D = 
+CALCULATE(
+    [Total Syncs],
+    DATESINPERIOD(
+        fct_fivetran_sync_performance[started_at],
+        LASTDATE(fct_fivetran_sync_performance[started_at]),
+        -7,
+        DAY
+    )
+)
+
+Errors Last 7D = 
+CALCULATE(
+    [Total Errors],
+    DATESINPERIOD(
+        fct_fivetran_error_monitoring[logged_at],
+        LASTDATE(fct_fivetran_error_monitoring[logged_at]),
+        -7,
+        DAY
+    )
+)
+
+Success Rate Last 7D = 
+CALCULATE(
+    [Success Rate],
+    DATESINPERIOD(
+        fct_fivetran_sync_performance[started_at],
+        LASTDATE(fct_fivetran_sync_performance[started_at]),
+        -7,
+        DAY
+    )
+)
+
+Syncs Last 30D = 
+CALCULATE(
+    [Total Syncs],
+    DATESINPERIOD(
+        fct_fivetran_sync_performance[started_at],
+        LASTDATE(fct_fivetran_sync_performance[started_at]),
+        -30,
+        DAY
+    )
+)
+
+MAR Last 30D = 
+CALCULATE(
+    [Total MAR],
+    DATESINPERIOD(
+        fct_fivetran_monthly_active_rows[month_date],
+        LASTDATE(fct_fivetran_monthly_active_rows[month_date]),
+        -30,
+        DAY
+    )
+)
+
+Syncs Today = 
+CALCULATE(
+    [Total Syncs],
+    fct_fivetran_sync_performance[started_at] = TODAY()
+)
+
+Syncs Yesterday = 
+CALCULATE(
+    [Total Syncs],
+    fct_fivetran_sync_performance[started_at] = TODAY() - 1
+)
+
+Syncs Change vs Yesterday = 
+[Syncs Today] - [Syncs Yesterday]
+
+Syncs % Change vs Yesterday = 
+DIVIDE([Syncs Change vs Yesterday], [Syncs Yesterday], 0)
+
+-- ============================================================================
+-- CONDITIONAL FORMATTING MEASURES
+-- ============================================================================
+
+Success Rate Color = 
+SWITCH(
+    TRUE(),
+    [Success Rate] >= 0.95, "#00C48C",
+    [Success Rate] >= 0.80, "#FF9500",
+    "#FF3B30"
+)
+
+MAR Growth Color = 
+IF(
+    [MAR Growth MoM] >= 0,
+    "#00C48C",
+    "#FF3B30"
+)
+
+Duration Color = 
+SWITCH(
+    TRUE(),
+    [Avg Sync Duration (min)] < 15, "#00C48C",
+    [Avg Sync Duration (min)] < 30, "#FF9500",
+    "#FF3B30"
+)
+
+-- ============================================================================
+-- STATUS INDICATOR MEASURES
+-- ============================================================================
+
+Health Status = 
+SWITCH(
+    TRUE(),
+    [Success Rate] >= 0.95, "Healthy",
+    [Success Rate] >= 0.80, "Warning",
+    "Critical"
+)
+
+Duration Status = 
+SWITCH(
+    TRUE(),
+    [Avg Sync Duration (min)] < 15, "Fast",
+    [Avg Sync Duration (min)] < 30, "Normal",
+    "Slow"
+)
+
+Error Severity = 
+SWITCH(
+    TRUE(),
+    [Total Errors] = 0, "None",
+    [Total Errors] <= 5, "Low",
+    [Total Errors] <= 20, "Medium",
+    "High"
+)
+
+-- ============================================================================
+-- END OF MEASURES
+-- ============================================================================
+-- Total Measures: 50+
+-- Last Updated: November 2024
+-- ============================================================================
