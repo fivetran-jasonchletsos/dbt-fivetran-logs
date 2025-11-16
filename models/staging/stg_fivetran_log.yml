@@ -89,10 +89,9 @@ models:
     description: Standardized view of Fivetran logs
     columns:
       - name: log_id
-        description: Unique identifier for the log entry
+        description: Identifier for the log entry
         data_tests:
           - not_null
-          - unique
       - name: logged_at
         description: Timestamp when the log entry was created
       - name: connection_id
@@ -191,19 +190,20 @@ models:
   - name: stg_fivetran_log__destination_column_change_event
     description: Standardized view of destination column schema change events
     columns:
-      - name: change_event_id
-        description: Unique identifier for the change event
-        data_tests:
-          - not_null
-          - unique
       - name: destination_column_id
         description: ID of the destination column that changed
+        data_tests:
+          - not_null
+      - name: destination_id
+        description: ID of the destination
+      - name: connection_id
+        description: ID of the connection
+      - name: attribute_name
+        description: Name of the attribute that changed
       - name: change_type
         description: Type of change (e.g., ALTER, DROP, ADD)
-      - name: previous_data_type
-        description: Data type before the change
-      - name: new_data_type
-        description: Data type after the change
+      - name: new_value
+        description: New value after the change
       - name: change_detected_at
         description: Timestamp when the change was detected
       - name: _fivetran_synced

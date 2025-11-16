@@ -4,12 +4,13 @@ with source as (
 
 renamed as (
     select
-        id as change_event_id,
         column_id as destination_column_id,
+        destination_id,
+        connection_id,
+        attribute_name,
         change_type,
-        previous_data_type,
-        new_data_type,
-        created_at as change_detected_at,
+        new_value,
+        detected_at as change_detected_at,
         _fivetran_synced
     from source
 )

@@ -5,12 +5,15 @@ with source as (
 renamed as (
     select
         connection_id,
-        name as connection_name,
+        connection_name,
         connector_type_id,
         destination_id,
-        created_at,
-        status,
+        connecting_user_id,
+        signed_up as created_at,
         paused as is_paused,
+        sync_frequency,
+        deployment_type,
+        _fivetran_deleted,
         _fivetran_synced
     from source
 )

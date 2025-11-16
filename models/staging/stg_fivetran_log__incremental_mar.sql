@@ -12,8 +12,14 @@ renamed as (
         measured_date,
         schema_name,
         table_name,
+        sync_type,
         incremental_rows,
-        is_free,
+        case 
+            when free_type = 'FREE' then true 
+            when free_type = 'PAID' then false 
+            else null 
+        end as is_free,
+        updated_at,
         _fivetran_synced
     from source
 

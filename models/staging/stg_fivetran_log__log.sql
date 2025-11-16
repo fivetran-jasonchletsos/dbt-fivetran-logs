@@ -4,13 +4,13 @@ with source as (
 
 renamed as (
     select
-        log_id,
+        id as log_id,
         sync_id,
-        logged_at,
-        event_type,
+        time_stamp as logged_at,
+        event as event_type,
         connection_id,
-        message_type,
-        message_content,
+        message_event as message_type,
+        message_data as message_content,
         _fivetran_synced
     from source
 )
