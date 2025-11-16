@@ -1,0 +1,210 @@
+version: 2
+
+models:
+  - name: stg_fivetran_log__account
+    description: Standardized view of Fivetran accounts
+    columns:
+      - name: account_id
+        description: Unique identifier for the account
+        data_tests:
+          - not_null
+          - unique
+      - name: account_name
+        description: Name of the account
+      - name: created_at
+        description: Timestamp when the account was created
+      - name: account_status
+        description: Current status of the account
+      - name: country
+        description: Country where the account is registered
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__connection
+    description: Standardized view of Fivetran connections
+    columns:
+      - name: connection_id
+        description: Unique identifier for the connection
+        data_tests:
+          - not_null
+          - unique
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_type_id
+        description: Type of connector used
+      - name: destination_id
+        description: ID of the destination
+      - name: created_at
+        description: Timestamp when the connection was created
+      - name: is_paused
+        description: Whether the connection is paused
+      - name: sync_frequency_minutes
+        description: How often the connection syncs in minutes
+      - name: is_deleted
+        description: Whether this connection has been deleted
+
+  - name: stg_fivetran_log__connector_type
+    description: Standardized view of Fivetran connector types
+    columns:
+      - name: connector_type_id
+        description: Unique identifier for the connector type
+        data_tests:
+          - not_null
+          - unique
+      - name: connector_name
+        description: Official name of the connector
+      - name: connector_type
+        description: Type of connector (e.g., database, application)
+      - name: availability_status
+        description: Availability status of the connector
+      - name: created_at
+        description: Timestamp when the connector was created
+      - name: released_at
+        description: Timestamp when the connector was released
+      - name: is_deleted
+        description: Whether the connector has been deleted
+
+  - name: stg_fivetran_log__destination
+    description: Standardized view of Fivetran destinations
+    columns:
+      - name: destination_id
+        description: Unique identifier for the destination
+        data_tests:
+          - not_null
+          - unique
+      - name: destination_name
+        description: Name of the destination
+      - name: account_id
+        description: ID of the account that owns the destination
+      - name: created_at
+        description: Timestamp when the destination was created
+      - name: region
+        description: Region where the destination is located
+      - name: is_active
+        description: Whether the destination is active
+      - name: destination_type
+        description: Type of destination (e.g., Snowflake, BigQuery)
+
+  - name: stg_fivetran_log__log
+    description: Standardized view of Fivetran logs
+    columns:
+      - name: log_id
+        description: Unique identifier for the log entry
+        data_tests:
+          - not_null
+          - unique
+      - name: logged_at
+        description: Timestamp when the log entry was created
+      - name: connection_id
+        description: ID of the connection that generated the log
+      - name: event_type
+        description: Type of event that occurred
+      - name: message_type
+        description: Specific message event type
+      - name: message_content
+        description: Detailed message data
+      - name: sync_id
+        description: ID of the sync run
+
+  - name: stg_fivetran_log__incremental_mar
+    description: Standardized view of Monthly Active Rows (MAR) data
+    columns:
+      - name: connection_name
+        description: Name of the connection
+      - name: destination_id
+        description: ID of the destination
+      - name: measured_date
+        description: Date when the measurement was taken
+      - name: schema_name
+        description: Name of the schema
+      - name: sync_type
+        description: Type of sync (e.g., incremental, full)
+      - name: table_name
+        description: Name of the table
+      - name: is_free
+        description: Whether the rows are free or paid
+      - name: updated_at
+        description: Timestamp when the record was updated
+      - name: incremental_rows
+        description: Number of incremental rows
+
+  - name: stg_fivetran_log__transformation_runs
+    description: Standardized view of dbt transformation runs
+    columns:
+      - name: destination_id
+        description: ID of the destination
+      - name: job_id
+        description: ID of the transformation job
+      - name: measured_date
+        description: Date when the measurement was taken
+      - name: project_type
+        description: Type of project
+      - name: is_free
+        description: Whether the transformations are free or paid
+      - name: job_name
+        description: Name of the transformation job
+      - name: updated_at
+        description: Timestamp when the record was updated
+      - name: model_runs
+        description: Number of model runs
+
+  - name: stg_fivetran_log__user
+    description: Standardized view of Fivetran users
+    columns:
+      - name: user_id
+        description: Unique identifier for the user
+        data_tests:
+          - not_null
+          - unique
+      - name: email
+        description: Email of the user
+      - name: first_name
+        description: First name of the user
+      - name: last_name
+        description: Last name of the user
+      - name: created_at
+        description: Timestamp when the user was created
+
+  - name: stg_fivetran_log__audit_trail
+    description: Standardized view of Fivetran audit trail events
+    columns:
+      - name: audit_id
+        description: Unique identifier for the audit event
+        data_tests:
+          - not_null
+          - unique
+      - name: user_id
+        description: ID of the user who performed the action
+      - name: event_type
+        description: Type of event (e.g., CREATE, UPDATE, DELETE)
+      - name: event_subtype
+        description: Subtype of the event for more granular tracking
+      - name: resource_id
+        description: ID of the resource affected
+      - name: resource_type
+        description: Type of resource (e.g., connection, destination)
+      - name: event_created_at
+        description: Timestamp when the event occurred
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__destination_column_change_event
+    description: Standardized view of destination column schema change events
+    columns:
+      - name: change_event_id
+        description: Unique identifier for the change event
+        data_tests:
+          - not_null
+          - unique
+      - name: destination_column_id
+        description: ID of the destination column that changed
+      - name: change_type
+        description: Type of change (e.g., ALTER, DROP, ADD)
+      - name: previous_data_type
+        description: Data type before the change
+      - name: new_data_type
+        description: Data type after the change
+      - name: change_detected_at
+        description: Timestamp when the change was detected
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record

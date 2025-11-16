@@ -1,0 +1,20 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: a3209653506471-sales_eng_demo
+      user: jason.chletsos@fivetran.com
+      
+      # Key pair authentication
+      private_key_path: /Users/jason.chletsos/Downloads/rsa_key.pem
+      # If your key has a passphrase, uncomment and set it
+      # private_key_passphrase: your_passphrase_here
+      
+      role: SALES_DEMO_ROLE
+      database: JASON_CHLETSOS
+      warehouse: DEFAULT
+      schema: fivetran_analytics
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: dbt-fivetran-analytics

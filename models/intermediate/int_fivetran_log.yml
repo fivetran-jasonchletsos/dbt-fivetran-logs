@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: int_fivetran_log__connector_details
+    description: Enriched connector information with connection and destination details
+    columns:
+      - name: connection_id
+        description: Unique identifier for the connection
+        data_tests:
+          - not_null
+          - unique
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_name
+        description: Name of the connector
+      - name: connector_type
+        description: Type of connector (e.g., database, application)
+      - name: destination_name
+        description: Name of the destination
+      - name: destination_type
+        description: Type of destination (e.g., Snowflake, BigQuery)
+      - name: created_at
+        description: Timestamp when the connection was created
+      - name: is_paused
+        description: Whether the connection is paused
+      - name: sync_frequency_minutes
+        description: How often the connection syncs in minutes
+      - name: is_deleted
+        description: Whether this connection has been deleted
+
+  - name: int_fivetran_log__sync_events
+    description: Detailed sync events extracted from logs
+    columns:
+      - name: sync_id
+        description: Unique identifier for the sync run
+      - name: connection_id
+        description: ID of the connection
+      - name: connection_name
+        description: Name of the connection
+      - name: sync_start_time
+        description: Timestamp when the sync started
+      - name: sync_end_time
+        description: Timestamp when the sync ended
+      - name: sync_status
+        description: Status of the sync (success, error, etc.)
+      - name: error_message
+        description: Error message if the sync failed
+      - name: sync_duration_seconds
+        description: Duration of the sync in seconds
+      - name: rows_synced
+        description: Number of rows synced
+      - name: destination_id
+        description: ID of the destination
+      - name: destination_name
+        description: Name of the destination
+
+  - name: int_fivetran_log__daily_api_calls
+    description: Daily count of API calls by connection
+    columns:
+      - name: date_day
+        description: Date of the API calls
+      - name: connection_id
+        description: ID of the connection
+      - name: connection_name
+        description: Name of the connection
+      - name: destination_id
+        description: ID of the destination
+      - name: api_calls_count
+        description: Number of API calls made
+
+  - name: int_fivetran_log__daily_active_rows
+    description: Daily active rows by connection and table
+    columns:
+      - name: date_day
+        description: Date of the measurement
+      - name: connection_name
+        description: Name of the connection
+      - name: destination_id
+        description: ID of the destination
+      - name: schema_name
+        description: Name of the schema
+      - name: table_name
+        description: Name of the table
+      - name: is_free
+        description: Whether the rows are free or paid
+      - name: active_rows
+        description: Number of active rows

@@ -1,0 +1,111 @@
+version: 2
+
+sources:
+  - name: fivetran_log
+    database: JASON_CHLETSOS
+    schema: JASON_CHLETSOS_FIVETRAN_LOG
+    description: Raw Fivetran log data containing metadata about connections, syncs, and usage metrics
+    tables:
+      # Core Tables
+      - name: account
+        description: Information about Fivetran accounts
+        
+      - name: connection
+        description: Information about Fivetran connections
+        
+      - name: connector_type
+        description: Information about connector types
+        
+      - name: destination
+        description: Information about destinations
+        
+      - name: log
+        description: Log events from Fivetran
+        
+      - name: user
+        description: Fivetran user information
+      
+      # Usage & Billing
+      - name: incremental_mar
+        description: Monthly Active Rows (MAR) data for billing
+      
+      # Transformations
+      - name: transformation_runs
+        description: dbt transformation run data
+      
+      # Schema & Lineage Tables
+      - name: destination_schema
+        description: Destination schemas in the data warehouse
+        
+      - name: destination_table
+        description: Destination tables in the data warehouse
+        
+      - name: destination_column
+        description: Destination columns in the data warehouse
+        
+      - name: source_schema
+        description: Source schemas from connected data sources
+        
+      - name: source_table
+        description: Source tables from connected data sources
+        
+      - name: source_column
+        description: Source columns from connected data sources
+        
+      - name: source_foreign_key
+        description: Foreign key relationships in source systems
+      
+      # Change Events
+      - name: destination_schema_change_event
+        description: Schema change events in destination
+        
+      - name: destination_table_change_event
+        description: Table change events in destination
+        
+      - name: destination_column_change_event
+        description: Column change events in destination
+        
+      - name: source_schema_change_event
+        description: Schema change events in source
+        
+      - name: source_table_change_event
+        description: Table change events in source
+        
+      - name: source_column_change_event
+        description: Column change events in source
+      
+      # Lineage
+      - name: schema_lineage
+        description: Lineage mapping between source and destination schemas
+        
+      - name: table_lineage
+        description: Lineage mapping between source and destination tables
+        
+      - name: column_lineage
+        description: Lineage mapping between source and destination columns
+      
+      # Access Control & Governance
+      - name: team
+        description: Teams within the Fivetran account
+        
+      - name: team_membership
+        description: User membership in teams
+        
+      - name: role
+        description: Roles for access control
+        
+      - name: role_permission
+        description: Permissions assigned to roles
+        
+      - name: role_connector_type
+        description: Connector types accessible by roles
+        
+      - name: resource_membership
+        description: Resource access for users and teams
+      
+      # Audit & Monitoring
+      - name: audit_trail
+        description: Audit trail of user actions
+        
+      - name: connector_sdk_log
+        description: Logs from custom connector SDK

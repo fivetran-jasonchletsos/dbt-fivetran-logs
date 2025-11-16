@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: fct_fivetran_user_activity
+    description: User activity in Fivetran
+    columns:
+      - name: activity_date
+        description: Date of the activity
+      - name: user_id
+        description: ID of the user
+      - name: user_email
+        description: Email of the user
+      - name: user_name
+        description: Full name of the user
+      - name: action_type
+        description: Type of action performed
+      - name: resource_type
+        description: Type of resource affected
+      - name: resource_name
+        description: Name of the resource affected
+      - name: activity_count
+        description: Number of activities performed
+
+  - name: fct_fivetran_destination_security
+    description: Security and access metrics for Fivetran destinations
+    columns:
+      - name: destination_id
+        description: ID of the destination
+      - name: destination_name
+        description: Name of the destination
+      - name: destination_type
+        description: Type of destination
+      - name: total_users
+        description: Total number of users with access
+      - name: admin_users
+        description: Number of users with admin access
+      - name: last_security_update
+        description: Timestamp of the last security update
+      - name: ip_restrictions_enabled
+        description: Whether IP restrictions are enabled
+      - name: sso_enabled
+        description: Whether SSO is enabled

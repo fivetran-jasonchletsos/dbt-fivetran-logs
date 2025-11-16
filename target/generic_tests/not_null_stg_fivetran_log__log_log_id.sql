@@ -1,0 +1,1 @@
+{{ test_not_null(column_name="log_id", model=get_where_subquery(ref('stg_fivetran_log__log'))) }}

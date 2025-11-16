@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: fct_fivetran_sync_performance
+    description: Detailed sync performance metrics
+    columns:
+      - name: sync_id
+        description: Unique identifier for the sync run
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_name
+        description: Name of the connector
+      - name: destination_name
+        description: Name of the destination
+      - name: sync_start_time
+        description: Timestamp when the sync started
+      - name: sync_end_time
+        description: Timestamp when the sync ended
+      - name: sync_status
+        description: Status of the sync (success, error, etc.)
+      - name: sync_duration_seconds
+        description: Duration of the sync in seconds
+      - name: rows_synced
+        description: Number of rows synced
+      - name: sync_date
+        description: Date of the sync
+
+  - name: fct_fivetran_connector_health
+    description: Health metrics for connectors
+    columns:
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_name
+        description: Name of the connector
+      - name: destination_name
+        description: Name of the destination
+      - name: last_sync_at
+        description: Timestamp of the last sync
+      - name: last_sync_status
+        description: Status of the last sync
+      - name: avg_sync_duration_seconds
+        description: Average sync duration in seconds
+      - name: total_syncs_last_7d
+        description: Total number of syncs in the last 7 days
+      - name: failed_syncs_last_7d
+        description: Number of failed syncs in the last 7 days
+      - name: success_rate_last_7d
+        description: Success rate of syncs in the last 7 days
+      - name: total_rows_synced_last_7d
+        description: Total rows synced in the last 7 days

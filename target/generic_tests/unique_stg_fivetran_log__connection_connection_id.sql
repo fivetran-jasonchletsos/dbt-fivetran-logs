@@ -1,0 +1,1 @@
+{{ test_unique(column_name="connection_id", model=get_where_subquery(ref('stg_fivetran_log__connection'))) }}

@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: fct_fivetran_monthly_active_rows
+    description: Monthly active rows by connection, schema, and table
+    columns:
+      - name: month_date
+        description: First day of the month
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_name
+        description: Name of the connector
+      - name: destination_name
+        description: Name of the destination
+      - name: schema_name
+        description: Name of the schema
+      - name: table_name
+        description: Name of the table
+      - name: free_active_rows
+        description: Number of free active rows
+      - name: paid_active_rows
+        description: Number of paid active rows
+      - name: total_active_rows
+        description: Total number of active rows
+
+  - name: fct_fivetran_monthly_credits
+    description: Monthly credit usage by destination
+    columns:
+      - name: month_date
+        description: First day of the month
+      - name: destination_name
+        description: Name of the destination
+      - name: destination_type
+        description: Type of destination
+      - name: mar_credits
+        description: Credits used for Monthly Active Rows
+      - name: transformation_credits
+        description: Credits used for transformations
+      - name: total_credits
+        description: Total credits used
+      - name: estimated_cost
+        description: Estimated cost based on standard pricing
+
+  - name: fct_fivetran_daily_api_usage
+    description: Daily API usage by connection
+    columns:
+      - name: date_day
+        description: Date of the API calls
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_name
+        description: Name of the connector
+      - name: destination_name
+        description: Name of the destination
+      - name: api_calls_count
+        description: Number of API calls made

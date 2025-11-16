@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: fct_fivetran_error_monitoring
+    description: Detailed error monitoring for Fivetran syncs
+    columns:
+      - name: sync_id
+        description: Unique identifier for the sync run
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_name
+        description: Name of the connector
+      - name: destination_name
+        description: Name of the destination
+      - name: sync_start_time
+        description: Timestamp when the sync started
+      - name: sync_end_time
+        description: Timestamp when the sync ended
+      - name: error_message
+        description: Error message if the sync failed
+      - name: error_type
+        description: Categorized error type
+      - name: is_recurring_error
+        description: Whether this error has occurred multiple times
+
+  - name: fct_fivetran_schema_changes
+    description: Schema change monitoring for Fivetran connections
+    columns:
+      - name: change_detected_at
+        description: Timestamp when the schema change was detected
+      - name: connection_name
+        description: Name of the connection
+      - name: connector_name
+        description: Name of the connector
+      - name: schema_name
+        description: Name of the schema
+      - name: table_name
+        description: Name of the table
+      - name: change_type
+        description: Type of schema change (add column, remove column, etc.)
+      - name: column_name
+        description: Name of the column that changed
+      - name: previous_data_type
+        description: Previous data type of the column
+      - name: new_data_type
+        description: New data type of the column
