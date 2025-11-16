@@ -28,7 +28,7 @@ Ready-to-import DAX measures file with 50+ measures:
 
 ---
 
-### **snowflake_import.pq**
+### **Data Import** (Removed)
 Power Query M scripts for data import:
 - 6 pre-built queries for all tables
 - Automatic column renaming

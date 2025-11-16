@@ -1,12 +1,12 @@
 
 
 with connector_health as (
-    select * from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_connector_health
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_connector_health
 ),
 
 monthly_active_rows as (
-    select * from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_monthly_active_rows
-    where month_date = (select max(month_date) from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_monthly_active_rows)
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_monthly_active_rows
+    where month_date = (select max(month_date) from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_monthly_active_rows)
 ),
 
 -- Calculate connector metrics

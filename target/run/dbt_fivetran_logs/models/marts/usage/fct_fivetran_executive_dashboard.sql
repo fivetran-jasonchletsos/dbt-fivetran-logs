@@ -2,20 +2,20 @@
   
     
 
-        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_executive_dashboard
+        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_executive_dashboard
          as
         (
 
 with connector_health as (
-    select * from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_connector_health
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_connector_health
 ),
 
 monthly_active_rows as (
-    select * from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_monthly_active_rows
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_monthly_active_rows
 ),
 
 error_monitoring as (
-    select * from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_error_monitoring
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring
     -- Remove date filter to include all data
 ),
 

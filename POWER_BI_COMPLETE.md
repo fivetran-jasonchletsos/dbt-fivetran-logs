@@ -6,10 +6,9 @@
 
 ## 🎉 What's Included
 
-### ✅ **3 Ready-to-Import Files**
+### ✅ **2 Ready-to-Import Files**
 1. **`powerbi/fivetran_measures.dax`** - 50+ DAX measures (copy/paste into Power BI)
-2. **`powerbi/snowflake_import.pq`** - 6 Power Query scripts (automated data import)
-3. **`powerbi/INDEX.md`** - Complete navigation guide
+2. **`powerbi/INDEX.md`** - Complete navigation guide
 
 ### ✅ **3 Comprehensive Guides**
 1. **`powerbi/QUICK_START.md`** - 30-minute walkthrough (START HERE!)
@@ -39,13 +38,9 @@ Schema: FIVETRAN_ANALYTICS
 ```
 
 ### Step 3: Import Data (5 min)
-**Option A**: Use Power Query scripts from `snowflake_import.pq`
-- Automated column renaming
-- Data type transformations
-- Date filtering
-
-**Option B**: Manual import via Navigator
-- Select 5 tables from `FIVETRAN_ANALYTICS` schema
+**Manual import via Navigator**:
+- Select 5 tables from `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS` schema
+- Follow steps in QUICK_START.md
 
 ### Step 4: Import Measures (5 min)
 📄 **File**: `powerbi/fivetran_measures.dax`
@@ -89,7 +84,7 @@ dbt-fivetran-logs/
     ├── README.md                 📖 Quick reference
     ├── METRICS_CATALOG.md        📊 60+ measures with descriptions
     ├── fivetran_measures.dax     💾 Ready-to-import DAX file
-    └── snowflake_import.pq       🔌 Power Query import scripts
+
 ```
 
 ---
@@ -114,7 +109,7 @@ dbt-fivetran-logs/
 
 **Steps**:
 1. Follow `powerbi/QUICK_START.md` for initial setup
-2. Use `snowflake_import.pq` for automated data import
+2. Follow manual import steps in QUICK_START.md
 3. Import all measures from `fivetran_measures.dax`
 4. Build all 5 dashboards from `POWERBI_GUIDE.md`
 5. Apply conditional formatting
@@ -400,7 +395,7 @@ Before you start, make sure you have:
 - [ ] **Files downloaded**:
   - [ ] `powerbi/QUICK_START.md`
   - [ ] `powerbi/fivetran_measures.dax`
-  - [ ] `powerbi/snowflake_import.pq`
+
 
 ---
 

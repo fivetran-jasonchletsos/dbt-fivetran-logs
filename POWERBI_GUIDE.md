@@ -61,11 +61,8 @@ CALCULATE(
     fct_fivetran_monthly_active_rows[month_date] = EOMONTH(TODAY(), 0)
 )
 
-Active Syncs Today = 
-CALCULATE(
-    DISTINCTCOUNT(fct_fivetran_sync_performance[sync_id]),
-    fct_fivetran_sync_performance[started_at] >= TODAY()
-)
+Total Syncs = 
+DISTINCTCOUNT(fct_fivetran_sync_performance[sync_id])
 ```
 
 #### Visuals Layout
@@ -85,7 +82,7 @@ CALCULATE(
 │                                                             │
 ├──────────────────────────────┬──────────────────────────────┤
 │                              │                              │
-│  MAR by Connector (Bar)      │  Errors Last 7 Days (Table)  │
+│  MAR by Connector (Bar)      │  Recent Errors (Table)       │
 │  - Top 10 by volume          │  - Connection Name           │
 │  - Paid vs Free split        │  - Error Count               │
 │                              │  - Last Error                │
@@ -106,11 +103,10 @@ CALCULATE(
 Avg Sync Duration (min) = 
 AVERAGE(fct_fivetran_sync_performance[sync_duration_minutes])
 
-Failed Syncs Last 7D = 
+Failed Syncs = 
 CALCULATE(
     COUNTROWS(fct_fivetran_sync_performance),
-    fct_fivetran_sync_performance[sync_status] = 'FAILURE',
-    fct_fivetran_sync_performance[started_at] >= TODAY() - 7
+    fct_fivetran_sync_performance[sync_status] = 'FAILURE'
 )
 
 Success Rate = 
@@ -123,11 +119,8 @@ DIVIDE(
     0
 )
 
-Rows Synced Today = 
-CALCULATE(
-    SUM(fct_fivetran_sync_performance[rows_synced]),
-    fct_fivetran_sync_performance[started_at] >= TODAY()
-)
+Rows Synced = 
+SUM(fct_fivetran_sync_performance[rows_synced])
 ```
 
 #### Visuals Layout
@@ -136,7 +129,7 @@ CALCULATE(
 │  CONNECTOR HEALTH MONITORING                                │
 ├─────────────┬─────────────┬─────────────┬─────────────────┤
 │ Avg Sync    │ Failed      │ Success     │ Rows Synced     │
-│ Duration    │ Syncs (7D)  │ Rate        │ Today           │
+│ Duration    │ Syncs       │ Rate        │                 │
 │  [12 min]   │    [5]      │   [98%]     │   [2.5M]        │
 ├─────────────┴─────────────┴─────────────┴─────────────────┤
 │                                                             │
@@ -231,11 +224,8 @@ TOPN(
 
 #### Key Measures
 ```dax
-Total Changes Last 7D = 
-CALCULATE(
-    COUNTROWS(fct_fivetran_schema_change_history),
-    fct_fivetran_schema_change_history[change_detected_at] >= TODAY() - 7
-)
+Total Changes = 
+COUNTROWS(fct_fivetran_schema_change_history)
 
 Breaking Changes = 
 CALCULATE(
@@ -250,7 +240,7 @@ Most Active Connection =
 TOPN(
     1,
     VALUES(fct_fivetran_schema_change_history[connection_name]),
-    [Total Changes Last 7D],
+    [Total Changes],
     DESC
 )
 ```
@@ -260,8 +250,8 @@ TOPN(
 ┌─────────────────────────────────────────────────────────────┐
 │  SCHEMA CHANGE TRACKING                                     │
 ├─────────────┬─────────────┬─────────────┬─────────────────┤
-│ Changes     │ Breaking    │ Tables      │ Most Active     │
-│ (Last 7D)   │ Changes     │ Affected    │ Connection      │
+│ Total       │ Breaking    │ Tables      │ Most Active     │
+│ Changes     │ Changes     │ Affected    │ Connection      │
 │    [23]     │    [3]      │    [12]     │  [Salesforce]   │
 ├─────────────┴─────────────┴─────────────┴─────────────────┤
 │                                                             │
@@ -292,11 +282,8 @@ TOPN(
 
 #### Key Measures
 ```dax
-Total Errors Last 7D = 
-CALCULATE(
-    COUNTROWS(fct_fivetran_error_monitoring),
-    fct_fivetran_error_monitoring[logged_at] >= TODAY() - 7
-)
+Total Errors = 
+COUNTROWS(fct_fivetran_error_monitoring)
 
 Recurring Errors = 
 CALCULATE(
@@ -306,11 +293,8 @@ CALCULATE(
 
 Error Rate = 
 DIVIDE(
-    [Total Errors Last 7D],
-    CALCULATE(
-        COUNTROWS(fct_fivetran_sync_performance),
-        fct_fivetran_sync_performance[started_at] >= TODAY() - 7
-    ),
+    [Total Errors],
+    COUNTROWS(fct_fivetran_sync_performance),
     0
 )
 
@@ -324,7 +308,7 @@ AVERAGE(fct_fivetran_error_monitoring[resolution_time_hours])
 │  ERROR MONITORING & TROUBLESHOOTING                         │
 ├─────────────┬─────────────┬─────────────┬─────────────────┤
 │ Total       │ Recurring   │ Error       │ MTTR            │
-│ Errors (7D) │ Errors      │ Rate        │                 │
+│ Errors      │ Errors      │ Rate        │                 │
 │    [45]     │    [12]     │   [2.3%]    │   [4.5 hrs]     │
 ├─────────────┴─────────────┴─────────────┴─────────────────┤
 │                                                             │
@@ -457,7 +441,7 @@ SELECT
         WHEN ch.success_rate_last_7d >= 0.80 THEN 'Warning'
         ELSE 'Critical'
     END as health_status
-FROM fivetran_analytics.fct_fivetran_connector_health ch
+FROM fivetran_analytics_fct_fivetran_logs.fct_fivetran_connector_health ch
 ORDER BY ch.success_rate_last_7d;
 ```
 
@@ -473,8 +457,7 @@ SELECT
     mar.schema_count,
     mar.table_count,
     ROUND(mar.paid_active_rows * 100.0 / NULLIF(mar.total_active_rows, 0), 2) as paid_percentage
-FROM fivetran_analytics.fct_fivetran_monthly_active_rows mar
-WHERE mar.month_date >= DATEADD(month, -12, CURRENT_DATE())
+FROM fivetran_analytics_fct_fivetran_logs.fct_fivetran_monthly_active_rows mar
 ORDER BY mar.month_date DESC, mar.total_active_rows DESC;
 ```
 
@@ -494,8 +477,7 @@ SELECT
         WHEN sch.change_type IN ('DROP', 'ALTER') THEN 'Breaking'
         ELSE 'Non-Breaking'
     END as impact_level
-FROM fivetran_analytics.fct_fivetran_schema_change_history sch
-WHERE sch.change_detected_at >= DATEADD(day, -30, CURRENT_DATE())
+FROM fivetran_analytics_fct_fivetran_logs.fct_fivetran_schema_change_history sch
 ORDER BY sch.change_detected_at DESC;
 ```
 
@@ -516,8 +498,7 @@ SELECT
         WHEN err.occurrence_count >= 5 THEN 'Medium'
         ELSE 'Low'
     END as severity
-FROM fivetran_analytics.fct_fivetran_error_monitoring err
-WHERE err.last_occurrence >= DATEADD(day, -7, CURRENT_DATE())
+FROM fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring err
 ORDER BY err.occurrence_count DESC;
 ```
 
@@ -534,8 +515,7 @@ SELECT
     sp.sync_status,
     sp.sync_type,
     ROUND(sp.rows_synced / NULLIF(sp.sync_duration_minutes, 0), 0) as rows_per_minute
-FROM fivetran_analytics.fct_fivetran_sync_performance sp
-WHERE sp.started_at >= DATEADD(day, -7, CURRENT_DATE())
+FROM fivetran_analytics_fct_fivetran_logs.fct_fivetran_sync_performance sp
 ORDER BY sp.started_at DESC;
 ```
 

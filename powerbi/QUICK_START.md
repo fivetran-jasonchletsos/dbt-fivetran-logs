@@ -8,7 +8,7 @@
 
 - [ ] Power BI Desktop installed ([Download here](https://powerbi.microsoft.com/desktop/))
 - [ ] Snowflake account credentials
-- [ ] dbt models successfully run in `FIVETRAN_ANALYTICS` schema
+- [ ] dbt models successfully run in `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS` schema
 - [ ] Snowflake connector for Power BI installed (auto-installs on first use)
 
 ---
@@ -55,25 +55,29 @@ Warehouse: COMPUTE_WH
 
 ### 2.1 Navigate to Schema
 1. In the Navigator window, expand your database
-2. Find and expand the `FIVETRAN_ANALYTICS` schema
+2. Find and expand the `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS` schema
 
 ### 2.2 Select Tables
-Check the boxes next to these 5 tables:
+Check the boxes next to these 5 tables (all UPPERCASE):
 - ✅ `FCT_FIVETRAN_CONNECTOR_HEALTH`
 - ✅ `FCT_FIVETRAN_SYNC_PERFORMANCE`
 - ✅ `FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS`
 - ✅ `FCT_FIVETRAN_ERROR_MONITORING`
 - ✅ `FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY`
 
-### 2.3 Transform Data (Optional but Recommended)
+### 2.3 Load or Transform Data
+**Option 1: Quick Load (Fastest)**
+- Click **Load** to import tables as-is
+- Table and column names will be UPPERCASE (Snowflake standard)
+
+**Option 2: Transform First (Recommended)**
 1. Click **Transform Data** instead of **Load**
 2. This opens Power Query Editor
-3. For each table:
-   - Right-click column headers → **Rename** to lowercase (optional)
-   - Verify data types are correct
-4. Click **Close & Apply**
+3. Optionally rename tables/columns to your preferred case
+4. Verify data types are correct
+5. Click **Close & Apply**
 
-**OR** skip transformation and click **Load** directly
+**Note**: All table and column names are UPPERCASE by default in Snowflake. You can rename them in Power BI Power Query Editor if you prefer lowercase.
 
 ---
 
@@ -116,20 +120,20 @@ ADDCOLUMNS(
 ### 4.2 Create Relationships
 Drag and drop to create these relationships:
 
-**From `fct_fivetran_connector_health`:**
+**From `FCT_FIVETRAN_CONNECTOR_HEALTH`:**
 ```
-connection_id → fct_fivetran_sync_performance[connection_id]
-connection_id → fct_fivetran_monthly_active_rows[connection_id]
-connection_id → fct_fivetran_error_monitoring[connection_id]
-connection_id → fct_fivetran_schema_change_history[connection_id]
+CONNECTION_NAME → FCT_FIVETRAN_SYNC_PERFORMANCE[CONNECTION_NAME]
+CONNECTION_NAME → FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[CONNECTION_NAME]
+CONNECTION_NAME → FCT_FIVETRAN_ERROR_MONITORING[CONNECTION_NAME]
+CONNECTION_NAME → FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[CONNECTION_NAME]
 ```
 
 **From `DateTable`:**
 ```
-Date → fct_fivetran_sync_performance[started_at] (date part)
-Date → fct_fivetran_error_monitoring[logged_at] (date part)
-Date → fct_fivetran_monthly_active_rows[month_date]
-Date → fct_fivetran_schema_change_history[change_detected_at] (date part)
+Date → FCT_FIVETRAN_SYNC_PERFORMANCE[SYNC_START_TIME] (date part)
+Date → FCT_FIVETRAN_ERROR_MONITORING[ERROR_TIMESTAMP] (date part)
+Date → FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[MEASURED_MONTH]
+Date → FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[CHANGE_TIMESTAMP] (date part)
 ```
 
 **Relationship Settings:**
@@ -244,7 +248,7 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
    - **Y-axis**: `Health Percentage`
 3. Resize to fill middle section
 4. Format:
-   - **Title**: "Connector Health Trend (Last 30 Days)"
+   - **Title**: "Connector Health Trend"
    - **Y-axis** → Display units: Percentage
    - **Data colors** → Line color: #0073E6 (Fivetran blue)
 
@@ -252,7 +256,7 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 1. Click **Visualizations** → **Clustered bar chart**
 2. Drag fields:
-   - **Y-axis**: `fct_fivetran_monthly_active_rows[connection_name]`
+   - **Y-axis**: `FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[CONNECTION_NAME]`
    - **X-axis**: `Total MAR`
 3. Resize and position
 4. Format:
@@ -264,13 +268,13 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 1. Click **Visualizations** → **Table**
 2. Drag fields:
-   - `fct_fivetran_error_monitoring[connection_name]`
-   - `fct_fivetran_error_monitoring[error_type]`
-   - `fct_fivetran_error_monitoring[logged_at]`
-   - `fct_fivetran_error_monitoring[error_message]`
+   - `FCT_FIVETRAN_ERROR_MONITORING[CONNECTION_NAME]`
+   - `FCT_FIVETRAN_ERROR_MONITORING[ERROR_TYPE]`
+   - `FCT_FIVETRAN_ERROR_MONITORING[ERROR_TIMESTAMP]`
+   - `FCT_FIVETRAN_ERROR_MONITORING[ERROR_MESSAGE]`
 3. Resize and position in bottom section
 4. Format:
-   - **Title**: "Recent Errors (Last 7 Days)"
+   - **Title**: "Recent Errors"
    - **Style** → Minimal
 
 ### 6.6 Add Slicers (Filters)
@@ -283,7 +287,7 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 **Connector Type Slicer:**
 1. Add another **Slicer**
-2. Drag `fct_fivetran_connector_health[connector_type]`
+2. Drag `FCT_FIVETRAN_CONNECTOR_HEALTH[CONNECTOR_NAME]`
 3. Position below date slicer
 
 ---
@@ -393,7 +397,6 @@ You now have a working Fivetran analytics dashboard with:
 - **[POWERBI_GUIDE.md](../POWERBI_GUIDE.md)** - Complete dashboard templates
 - **[METRICS_CATALOG.md](METRICS_CATALOG.md)** - All 60+ DAX measures
 - **[fivetran_measures.dax](fivetran_measures.dax)** - Ready-to-import measures
-- **[snowflake_import.pq](snowflake_import.pq)** - Power Query scripts
 
 ---
 
@@ -402,13 +405,14 @@ You now have a working Fivetran analytics dashboard with:
 ### Can't Connect to Snowflake
 - Verify account name format: `account.region.snowflakecomputing.com`
 - Check warehouse is running
-- Verify user has access to `FIVETRAN_ANALYTICS` schema
+- Verify user has access to `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS` schema
 - Try using **Microsoft Account** authentication if SSO is enabled
 
 ### Tables Not Loading
 - Verify dbt models have run successfully
-- Check schema name is correct (case-sensitive in Snowflake)
+- Check schema name is `FIVETRAN_ANALYTICS_FCT_FIVETRAN_LOGS` (UPPERCASE)
 - Ensure user has SELECT permissions on tables
+- Look for tables starting with `FCT_FIVETRAN_` (all UPPERCASE)
 
 ### Measures Show Errors
 - Check table and column names match your schema

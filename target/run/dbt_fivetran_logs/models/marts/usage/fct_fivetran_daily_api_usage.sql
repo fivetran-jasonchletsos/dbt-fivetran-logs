@@ -2,7 +2,7 @@
   
     
 
-        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_daily_api_usage
+        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_daily_api_usage
          as
         (with daily_api_calls as (
     select * from JASON_CHLETSOS.fivetran_analytics_int_fivetran_log.int_fivetran_log__daily_api_calls

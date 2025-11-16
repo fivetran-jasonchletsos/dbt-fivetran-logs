@@ -42,7 +42,7 @@ models:
     # Mart models
     marts:
       +materialized: table
-      +schema: fivetran_analytics
+      +schema: fct_fivetran_logs
       
       # Specific mart areas
       usage:

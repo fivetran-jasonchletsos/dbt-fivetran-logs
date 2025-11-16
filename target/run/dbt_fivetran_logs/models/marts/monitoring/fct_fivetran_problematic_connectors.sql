@@ -2,16 +2,16 @@
   
     
 
-        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_problematic_connectors
+        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_problematic_connectors
          as
         (
 
 with sync_performance as (
-    select * from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_sync_performance
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_sync_performance
 ),
 
 error_monitoring as (
-    select * from JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_error_monitoring
+    select * from JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_error_monitoring
 ),
 
 -- Calculate error metrics by connector

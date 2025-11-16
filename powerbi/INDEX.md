@@ -27,7 +27,7 @@
 ### Want to import everything quickly?
 👉 **Use these**:
 - [fivetran_measures.dax](fivetran_measures.dax) - All measures ready to import
-- [snowflake_import.pq](snowflake_import.pq) - Power Query scripts
+
 
 ---
 
@@ -126,13 +126,7 @@
 **Length**: 329 lines  
 **Queries**: 6 (5 tables + Date table)
 
-**Included Queries**:
-1. **Connector Health** - Real-time health metrics
-2. **Sync Performance** - Sync history (last 90 days)
-3. **Monthly Active Rows** - MAR tracking
-4. **Error Monitoring** - Error logs (last 30 days)
-5. **Schema Change History** - Schema changes (last 90 days)
-6. **Date Table** - Calendar dimension (2020 to +3 years)
+**Note**: The Power Query import file has been removed for simplicity. Use the manual import method in QUICK_START.md instead.
 
 **Features**:
 - ✅ Automatic column renaming (uppercase → lowercase)
@@ -242,7 +236,7 @@ Background:     #F2F2F7  (Page background)
 **Goal**: Build all 5 dashboards with full features
 
 1. Follow [QUICK_START.md](QUICK_START.md) for setup
-2. Use [snowflake_import.pq](snowflake_import.pq) for data import
+2. Follow manual import steps in QUICK_START.md
 3. Import all measures from [fivetran_measures.dax](fivetran_measures.dax)
 4. Build all 5 dashboards from [POWERBI_GUIDE.md](../POWERBI_GUIDE.md)
 5. Apply conditional formatting
@@ -365,7 +359,7 @@ Background:     #F2F2F7  (Page background)
 - **Complete Guide**: [POWERBI_GUIDE.md](../POWERBI_GUIDE.md)
 - **Measures**: [METRICS_CATALOG.md](METRICS_CATALOG.md)
 - **DAX File**: [fivetran_measures.dax](fivetran_measures.dax)
-- **Power Query**: [snowflake_import.pq](snowflake_import.pq)
+- **Power Query**: Manual import (see QUICK_START.md)
 
 ### Contact
 - **Email**: jason.chletsos@fivetran.com

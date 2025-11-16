@@ -2,7 +2,7 @@
   
     
 
-        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fivetran_analytics.fct_fivetran_user_activity
+        create or replace transient table JASON_CHLETSOS.fivetran_analytics_fct_fivetran_logs.fct_fivetran_user_activity
          as
         (
 
