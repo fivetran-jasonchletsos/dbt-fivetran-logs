@@ -174,16 +174,24 @@ models:
           - unique
       - name: user_id
         description: ID of the user who performed the action
-      - name: event_type
-        description: Type of event (e.g., CREATE, UPDATE, DELETE)
-      - name: event_subtype
-        description: Subtype of the event for more granular tracking
-      - name: resource_id
-        description: ID of the resource affected
-      - name: resource_type
-        description: Type of resource (e.g., connection, destination)
       - name: event_created_at
         description: Timestamp when the event occurred
+      - name: event_type
+        description: Type of action performed (e.g., CREATE, UPDATE, DELETE)
+      - name: interaction_method
+        description: How the action was performed (e.g., UI, API)
+      - name: resource_type
+        description: Type of primary resource affected
+      - name: resource_id
+        description: ID of the primary resource affected
+      - name: secondary_resource_type
+        description: Type of secondary resource affected (if applicable)
+      - name: secondary_resource_id
+        description: ID of the secondary resource affected (if applicable)
+      - name: old_values
+        description: JSON of values before the change
+      - name: new_values
+        description: JSON of values after the change
       - name: _fivetran_synced
         description: Timestamp when Fivetran last synced this record
 
@@ -206,5 +214,437 @@ models:
         description: New value after the change
       - name: change_detected_at
         description: Timestamp when the change was detected
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  # Schema & Table Models
+  - name: stg_fivetran_log__destination_schema
+    description: Destination schemas created by Fivetran connectors
+    columns:
+      - name: destination_schema_id
+        description: Unique identifier for the destination schema
+        data_tests:
+          - not_null
+          - unique
+      - name: destination_id
+        description: ID of the destination where the schema exists
+      - name: connection_id
+        description: ID of the connection that created the schema
+      - name: schema_name
+        description: Name of the schema in the destination
+      - name: created_at
+        description: Timestamp when the schema was first created
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__destination_table
+    description: Destination tables created by Fivetran connectors
+    columns:
+      - name: destination_table_id
+        description: Unique identifier for the destination table
+        data_tests:
+          - not_null
+          - unique
+      - name: destination_id
+        description: ID of the destination where the table exists
+      - name: destination_schema_id
+        description: ID of the schema containing this table
+      - name: connection_id
+        description: ID of the connection that created the table
+      - name: table_name
+        description: Name of the table in the destination
+      - name: created_at
+        description: Timestamp when the table was first created
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__destination_column
+    description: Destination columns created by Fivetran connectors
+    columns:
+      - name: destination_column_id
+        description: Unique identifier for the destination column
+        data_tests:
+          - not_null
+          - unique
+      - name: destination_id
+        description: ID of the destination where the column exists
+      - name: destination_table_id
+        description: ID of the table containing this column
+      - name: connection_id
+        description: ID of the connection that created the column
+      - name: column_name
+        description: Name of the column in the destination
+      - name: data_type
+        description: Data type of the column
+      - name: created_at
+        description: Timestamp when the column was first created
+      - name: updated_at
+        description: Timestamp when the column was last updated
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__source_schema
+    description: Source schemas discovered by Fivetran connectors
+    columns:
+      - name: source_schema_id
+        description: Unique identifier for the source schema
+        data_tests:
+          - not_null
+          - unique
+      - name: connection_id
+        description: ID of the connection that discovered the schema
+      - name: schema_name
+        description: Name of the schema in the source system
+      - name: created_at
+        description: Timestamp when the schema was first discovered
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__source_table
+    description: Source tables discovered by Fivetran connectors
+    columns:
+      - name: source_table_id
+        description: Unique identifier for the source table
+        data_tests:
+          - not_null
+          - unique
+      - name: connection_id
+        description: ID of the connection that discovered the table
+      - name: source_schema_id
+        description: ID of the schema containing this table
+      - name: table_name
+        description: Name of the table in the source system
+      - name: created_at
+        description: Timestamp when the table was first discovered
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__source_column
+    description: Source columns discovered by Fivetran connectors
+    columns:
+      - name: source_column_id
+        description: Unique identifier for the source column
+        data_tests:
+          - not_null
+          - unique
+      - name: connection_id
+        description: ID of the connection that discovered the column
+      - name: source_table_id
+        description: ID of the table containing this column
+      - name: column_name
+        description: Name of the column in the source system
+      - name: data_type
+        description: Data type of the column in the source system
+      - name: is_primary_key
+        description: Whether this column is part of the primary key
+      - name: created_at
+        description: Timestamp when the column was first discovered
+      - name: updated_at
+        description: Timestamp when the column was last updated
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__source_foreign_key
+    description: Foreign key relationships discovered in source systems
+    columns:
+      - name: source_column_id
+        description: ID of the source column that is a foreign key
+        data_tests:
+          - not_null
+      - name: ordinal
+        description: Position of the column in a composite foreign key
+      - name: foreign_key_reference
+        description: Reference to the primary key column
+      - name: created_at
+        description: Timestamp when the foreign key was first discovered
+      - name: updated_at
+        description: Timestamp when the foreign key was last updated
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  # Lineage Models
+  - name: stg_fivetran_log__schema_lineage
+    description: Lineage mapping between source and destination schemas
+    columns:
+      - name: destination_schema_id
+        description: ID of the destination schema
+        data_tests:
+          - not_null
+      - name: source_schema_id
+        description: ID of the source schema
+        data_tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the lineage was established
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__table_lineage
+    description: Lineage mapping between source and destination tables
+    columns:
+      - name: destination_table_id
+        description: ID of the destination table
+        data_tests:
+          - not_null
+      - name: source_table_id
+        description: ID of the source table
+        data_tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the lineage was established
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__column_lineage
+    description: Lineage mapping between source and destination columns
+    columns:
+      - name: destination_column_id
+        description: ID of the destination column
+        data_tests:
+          - not_null
+      - name: source_column_id
+        description: ID of the source column
+        data_tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the lineage was established
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  # Change Event Models
+  - name: stg_fivetran_log__destination_schema_change_event
+    description: Schema-level change events in destination systems
+    columns:
+      - name: destination_schema_id
+        description: ID of the destination schema that changed
+        data_tests:
+          - not_null
+      - name: destination_id
+        description: ID of the destination
+      - name: connection_id
+        description: ID of the connection
+      - name: change_type
+        description: Type of change (e.g., CREATE, DROP)
+      - name: change_detected_at
+        description: Timestamp when the change was detected
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__destination_table_change_event
+    description: Table-level change events in destination systems
+    columns:
+      - name: destination_table_id
+        description: ID of the destination table that changed
+        data_tests:
+          - not_null
+      - name: destination_id
+        description: ID of the destination
+      - name: connection_id
+        description: ID of the connection
+      - name: change_type
+        description: Type of change (e.g., CREATE, DROP, TRUNCATE)
+      - name: change_detected_at
+        description: Timestamp when the change was detected
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__source_schema_change_event
+    description: Schema-level change events in source systems
+    columns:
+      - name: source_schema_id
+        description: ID of the source schema that changed
+        data_tests:
+          - not_null
+      - name: connection_id
+        description: ID of the connection
+      - name: change_type
+        description: Type of change (e.g., CREATE, DROP)
+      - name: change_detected_at
+        description: Timestamp when the change was detected
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__source_table_change_event
+    description: Table-level change events in source systems
+    columns:
+      - name: source_table_id
+        description: ID of the source table that changed
+        data_tests:
+          - not_null
+      - name: connection_id
+        description: ID of the connection
+      - name: change_type
+        description: Type of change (e.g., CREATE, DROP)
+      - name: change_detected_at
+        description: Timestamp when the change was detected
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__source_column_change_event
+    description: Column-level change events in source systems
+    columns:
+      - name: source_column_id
+        description: ID of the source column that changed
+        data_tests:
+          - not_null
+      - name: connection_id
+        description: ID of the connection
+      - name: attribute_name
+        description: Name of the attribute that changed
+      - name: entity_type
+        description: Type of entity (typically COLUMN)
+      - name: change_type
+        description: Type of change (e.g., ALTER, DROP, ADD)
+      - name: new_value
+        description: New value after the change
+      - name: change_detected_at
+        description: Timestamp when the change was detected
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  # Access Control & Governance Models
+  - name: stg_fivetran_log__team
+    description: Teams within the Fivetran account for access control
+    columns:
+      - name: team_id
+        description: Unique identifier for the team
+        data_tests:
+          - not_null
+          - unique
+      - name: team_name
+        description: Name of the team
+      - name: team_description
+        description: Description of the team's purpose
+      - name: parent_team_id
+        description: ID of the parent team (for hierarchical teams)
+      - name: account_id
+        description: ID of the account that owns the team
+      - name: is_deleted
+        description: Whether the team has been deleted
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__team_membership
+    description: User membership in teams with assigned roles
+    columns:
+      - name: team_id
+        description: ID of the team
+        data_tests:
+          - not_null
+      - name: role_id
+        description: ID of the role assigned to the user in this team
+      - name: user_id
+        description: ID of the user
+        data_tests:
+          - not_null
+      - name: created_at
+        description: Timestamp when the membership was created
+      - name: is_deleted
+        description: Whether the membership has been deleted
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__role
+    description: Roles that define permissions within Fivetran
+    columns:
+      - name: role_id
+        description: Unique identifier for the role
+        data_tests:
+          - not_null
+          - unique
+      - name: role_name
+        description: Name of the role
+      - name: role_description
+        description: Description of the role's purpose and permissions
+      - name: account_id
+        description: ID of the account that owns the role
+      - name: connector_types
+        description: JSON array of connector types this role can access
+      - name: is_deleted
+        description: Whether the role has been deleted
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__role_permission
+    description: Individual permissions assigned to roles
+    columns:
+      - name: role_id
+        description: ID of the role
+        data_tests:
+          - not_null
+      - name: permission
+        description: Specific permission granted (e.g., VIEW_CONNECTOR, EDIT_DESTINATION)
+        data_tests:
+          - not_null
+      - name: is_deleted
+        description: Whether the permission has been deleted
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__role_connector_type
+    description: Connector types that a role has access to
+    columns:
+      - name: role_id
+        description: ID of the role
+        data_tests:
+          - not_null
+      - name: connector_type
+        description: Type of connector the role can access
+        data_tests:
+          - not_null
+      - name: is_deleted
+        description: Whether the access has been deleted
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  - name: stg_fivetran_log__resource_membership
+    description: Access control mapping between users/teams/roles and resources
+    columns:
+      - name: resource_membership_id
+        description: Unique identifier for the resource membership
+        data_tests:
+          - not_null
+          - unique
+      - name: role_id
+        description: ID of the role assigned
+      - name: team_id
+        description: ID of the team (if team-level access)
+      - name: user_id
+        description: ID of the user (if user-level access)
+      - name: account_id
+        description: ID of the account
+      - name: destination_id
+        description: ID of the destination (if destination-level access)
+      - name: connection_id
+        description: ID of the connection (if connection-level access)
+      - name: organization_id
+        description: ID of the organization
+      - name: created_at
+        description: Timestamp when the membership was created
+      - name: is_deleted
+        description: Whether the membership has been deleted
+      - name: _fivetran_synced
+        description: Timestamp when Fivetran last synced this record
+
+  # Monitoring Models
+  - name: stg_fivetran_log__connector_sdk_log
+    description: Logs from custom connectors built with the Fivetran SDK
+    columns:
+      - name: log_id
+        description: Unique identifier for the log entry
+        data_tests:
+          - not_null
+      - name: connection_id
+        description: ID of the connection that generated the log
+      - name: sync_id
+        description: ID of the sync run
+      - name: logged_at
+        description: Timestamp when the log was created
+      - name: log_level
+        description: Severity level of the log (e.g., INFO, WARNING, ERROR)
+      - name: log_message
+        description: Detailed log message
+      - name: message_origin
+        description: Origin of the message within the SDK connector
       - name: _fivetran_synced
         description: Timestamp when Fivetran last synced this record

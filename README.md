@@ -4,10 +4,12 @@ A comprehensive dbt project for analyzing Fivetran log data.
 
 ## 📚 Quick Links
 
+- **[QUICKSTART.md](QUICKSTART.md)** - ⚡ Get started in 5 minutes!
 - **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Detailed overview of analytics capabilities
+- **[MODEL_REFERENCE.md](MODEL_REFERENCE.md)** - Complete model documentation and use cases
 - **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Step-by-step setup instructions
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Development and contribution guidelines
 - **[PRIVATE_KEY_SETUP.md](PRIVATE_KEY_SETUP.md)** - Private key configuration guide
-- **[RENAME_PROJECT.md](RENAME_PROJECT.md)** - Instructions for completing the project rename
 - **[CHANGELOG.md](CHANGELOG.md)** - Project change history
 
 ## 📋 Project Overview
@@ -163,51 +165,53 @@ Data volume analysis:
 
 ## 🏗️ Architecture Compliance
 
-This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com/connector-erd/fivetran_log):
+This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com/connector-erd/fivetran_log) with **32 staging models** covering all Fivetran log tables:
 
-### ✅ Core Tables
-- `account` - Account information
-- `connection` - Connection configurations
-- `connector_type` - Connector metadata
-- `destination` - Destination configurations
-- `log` - Event logs
-- `user` - User information
+### ✅ Core Tables (6 models)
+- `stg_fivetran_log__account` - Account information
+- `stg_fivetran_log__connection` - Connection configurations
+- `stg_fivetran_log__connector_type` - Connector metadata
+- `stg_fivetran_log__destination` - Destination configurations
+- `stg_fivetran_log__log` - Event logs
+- `stg_fivetran_log__user` - User information
 
-### ✅ Usage & Billing
-- `incremental_mar` - Monthly Active Rows tracking
+### ✅ Usage & Billing (2 models)
+- `stg_fivetran_log__incremental_mar` - Monthly Active Rows tracking
+- `stg_fivetran_log__transformation_runs` - dbt transformation metrics
 
-### ✅ Transformations
-- `transformation_runs` - dbt transformation metrics
+### ✅ Schema Metadata (7 models)
+- `stg_fivetran_log__source_schema` - Source schemas discovered
+- `stg_fivetran_log__source_table` - Source tables discovered
+- `stg_fivetran_log__source_column` - Source columns discovered
+- `stg_fivetran_log__source_foreign_key` - Source foreign key relationships
+- `stg_fivetran_log__destination_schema` - Destination schemas created
+- `stg_fivetran_log__destination_table` - Destination tables created
+- `stg_fivetran_log__destination_column` - Destination columns created
 
-### ✅ Schema Metadata
-- `source_schema`, `source_table`, `source_column`
-- `destination_schema`, `destination_table`, `destination_column`
-- `source_foreign_key` - Relationship tracking
+### ✅ Change Events (6 models)
+- `stg_fivetran_log__source_schema_change_event` - Source schema changes
+- `stg_fivetran_log__source_table_change_event` - Source table changes
+- `stg_fivetran_log__source_column_change_event` - Source column changes
+- `stg_fivetran_log__destination_schema_change_event` - Destination schema changes
+- `stg_fivetran_log__destination_table_change_event` - Destination table changes
+- `stg_fivetran_log__destination_column_change_event` - Destination column changes
 
-### ✅ Change Events
-- `source_schema_change_event`
-- `source_table_change_event`
-- `source_column_change_event`
-- `destination_schema_change_event`
-- `destination_table_change_event`
-- `destination_column_change_event`
+### ✅ Lineage (3 models)
+- `stg_fivetran_log__schema_lineage` - Schema-level lineage mapping
+- `stg_fivetran_log__table_lineage` - Table-level lineage mapping
+- `stg_fivetran_log__column_lineage` - Column-level lineage mapping
 
-### ✅ Lineage
-- `schema_lineage` - Schema-level lineage
-- `table_lineage` - Table-level lineage
-- `column_lineage` - Column-level lineage
+### ✅ Access Control (6 models)
+- `stg_fivetran_log__team` - Team management
+- `stg_fivetran_log__team_membership` - User-team relationships
+- `stg_fivetran_log__role` - Role definitions
+- `stg_fivetran_log__role_permission` - Permission assignments
+- `stg_fivetran_log__role_connector_type` - Connector access control
+- `stg_fivetran_log__resource_membership` - Resource access control
 
-### ✅ Access Control
-- `team` - Team management
-- `team_membership` - User-team relationships
-- `role` - Role definitions
-- `role_permission` - Permission assignments
-- `role_connector_type` - Connector access control
-- `resource_membership` - Resource access
-
-### ✅ Audit & Monitoring
-- `audit_trail` - User activity audit
-- `connector_sdk_log` - Custom connector logs
+### ✅ Audit & Monitoring (2 models)
+- `stg_fivetran_log__audit_trail` - User activity audit trail
+- `stg_fivetran_log__connector_sdk_log` - Custom connector SDK logs
 
 ## 🔑 Key Features Implemented
 
