@@ -2,22 +2,22 @@
 
 A comprehensive dbt project for analyzing Fivetran log data.
 
-## 📚 Quick Links
+##  Quick Links
 
-- **[QUICKSTART.md](QUICKSTART.md)** - ⚡ Get started in 5 minutes!
+- **[QUICKSTART.md](QUICKSTART.md)** -  Get started in 5 minutes!
 - **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Detailed overview of analytics capabilities
 - **[MODEL_REFERENCE.md](MODEL_REFERENCE.md)** - Complete model documentation and use cases
-- **[POWERBI_GUIDE.md](POWERBI_GUIDE.md)** - 📊 Power BI dashboard setup and DAX measures
+- **[POWERBI_GUIDE.md](POWERBI_GUIDE.md)** -  Power BI dashboard setup and DAX measures
 - **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Step-by-step setup instructions
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Development and contribution guidelines
 - **[PRIVATE_KEY_SETUP.md](PRIVATE_KEY_SETUP.md)** - Private key configuration guide
 - **[CHANGELOG.md](CHANGELOG.md)** - Project change history
 
-## 📋 Project Overview
+##  Project Overview
 
 This dbt project analyzes Fivetran log data to provide comprehensive insights into connector health, usage patterns, performance metrics, and governance. It transforms raw Fivetran metadata into actionable analytics for data platform teams.
 
-## 🎯 What This Project Analyzes
+##  What This Project Analyzes
 
 ### 1. **Connector Health & Monitoring**
 - Real-time health scores for all Fivetran connectors
@@ -126,7 +126,7 @@ Optimization guidance:
 - Best practice recommendations
 - Priority-based action items
 
-## 📁 Analysis Queries Included
+##  Analysis Queries Included
 
 The `analyses/` folder contains ready-to-use SQL queries:
 
@@ -164,11 +164,11 @@ Data volume analysis:
 - Fact table row counts
 - Data freshness checks
 
-## 🏗️ Architecture Compliance
+##  Architecture Compliance
 
 This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com/connector-erd/fivetran_log) with **32 staging models** covering all Fivetran log tables:
 
-### ✅ Core Tables (6 models)
+###  Core Tables (6 models)
 - `stg_fivetran_log__account` - Account information
 - `stg_fivetran_log__connection` - Connection configurations
 - `stg_fivetran_log__connector_type` - Connector metadata
@@ -176,11 +176,11 @@ This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com
 - `stg_fivetran_log__log` - Event logs
 - `stg_fivetran_log__user` - User information
 
-### ✅ Usage & Billing (2 models)
+###  Usage & Billing (2 models)
 - `stg_fivetran_log__incremental_mar` - Monthly Active Rows tracking
 - `stg_fivetran_log__transformation_runs` - dbt transformation metrics
 
-### ✅ Schema Metadata (7 models)
+###  Schema Metadata (7 models)
 - `stg_fivetran_log__source_schema` - Source schemas discovered
 - `stg_fivetran_log__source_table` - Source tables discovered
 - `stg_fivetran_log__source_column` - Source columns discovered
@@ -189,7 +189,7 @@ This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com
 - `stg_fivetran_log__destination_table` - Destination tables created
 - `stg_fivetran_log__destination_column` - Destination columns created
 
-### ✅ Change Events (6 models)
+###  Change Events (6 models)
 - `stg_fivetran_log__source_schema_change_event` - Source schema changes
 - `stg_fivetran_log__source_table_change_event` - Source table changes
 - `stg_fivetran_log__source_column_change_event` - Source column changes
@@ -197,12 +197,12 @@ This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com
 - `stg_fivetran_log__destination_table_change_event` - Destination table changes
 - `stg_fivetran_log__destination_column_change_event` - Destination column changes
 
-### ✅ Lineage (3 models)
+###  Lineage (3 models)
 - `stg_fivetran_log__schema_lineage` - Schema-level lineage mapping
 - `stg_fivetran_log__table_lineage` - Table-level lineage mapping
 - `stg_fivetran_log__column_lineage` - Column-level lineage mapping
 
-### ✅ Access Control (6 models)
+###  Access Control (6 models)
 - `stg_fivetran_log__team` - Team management
 - `stg_fivetran_log__team_membership` - User-team relationships
 - `stg_fivetran_log__role` - Role definitions
@@ -210,35 +210,35 @@ This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com
 - `stg_fivetran_log__role_connector_type` - Connector access control
 - `stg_fivetran_log__resource_membership` - Resource access control
 
-### ✅ Audit & Monitoring (2 models)
+###  Audit & Monitoring (2 models)
 - `stg_fivetran_log__audit_trail` - User activity audit trail
 - `stg_fivetran_log__connector_sdk_log` - Custom connector SDK logs
 
-## 🔑 Key Features Implemented
+##  Key Features Implemented
 
 ### 1. **Environment Variable Configuration**
-- ✅ Private key stored in `.nao.env` (not in code)
-- ✅ Secure authentication via Snowflake key pairs
-- ✅ CI/CD ready configuration
-- ✅ Version control safe (`.gitignore` configured)
+-  Private key stored in `.nao.env` (not in code)
+-  Secure authentication via Snowflake key pairs
+-  CI/CD ready configuration
+-  Version control safe (`.gitignore` configured)
 
 ### 2. **Comprehensive Documentation**
-- ✅ Main README with project overview
-- ✅ SETUP_GUIDE.md for step-by-step setup
-- ✅ PRIVATE_KEY_SETUP.md for authentication
-- ✅ PROJECT_SUMMARY.md (this file)
-- ✅ Inline code documentation
+-  Main README with project overview
+-  SETUP_GUIDE.md for step-by-step setup
+-  PRIVATE_KEY_SETUP.md for authentication
+-  PROJECT_SUMMARY.md (this file)
+-  Inline code documentation
 
 ### 3. **Data Quality**
-- ✅ dbt tests on key columns
-- ✅ Not null and unique constraints
-- ✅ Referential integrity checks
-- ✅ Data freshness monitoring
+-  dbt tests on key columns
+-  Not null and unique constraints
+-  Referential integrity checks
+-  Data freshness monitoring
 
 ### 4. **Modular Design**
-- ✅ Staging layer for data standardization
-- ✅ Intermediate layer for business logic
-- ✅ Marts layer for analytics
+-  Staging layer for data standardization
+-  Intermediate layer for business logic
+-  Marts layer for analytics
 - ✅ Reusable components
 
 ### 5. **Performance Optimized**
