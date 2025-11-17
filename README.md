@@ -61,7 +61,7 @@ This dbt project analyzes Fivetran log data to provide comprehensive insights in
 - Best practice compliance checks
 - Resource optimization opportunities
 
-## 📊 Key Analytics Models
+##  Key Analytics Models
 
 ### Executive Dashboard (`fct_fivetran_executive_dashboard`)
 High-level KPIs for leadership:
@@ -239,15 +239,15 @@ This project **fully complies** with the [Fivetran Log ERD](https://fivetran.com
 -  Staging layer for data standardization
 -  Intermediate layer for business logic
 -  Marts layer for analytics
-- ✅ Reusable components
+-  Reusable components
 
 ### 5. **Performance Optimized**
-- ✅ Views for staging (no storage cost)
-- ✅ Tables for marts (query performance)
-- ✅ Appropriate materialization strategies
-- ✅ Efficient joins and aggregations
+-  Views for staging (no storage cost)
+-  Tables for marts (query performance)
+-  Appropriate materialization strategies
+-  Efficient joins and aggregations
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # 1. Clone and setup
@@ -271,7 +271,7 @@ dbt build
 # Open analyses/fivetran_analytics_queries.sql
 ```
 
-## 📈 Sample Insights You Can Get
+##  Sample Insights You Can Get
 
 ### "Which connectors are unhealthy?"
 ```sql
@@ -312,7 +312,7 @@ WHERE change_detected_at >= DATEADD(day, -7, CURRENT_DATE())
 ORDER BY change_detected_at DESC;
 ```
 
-## 🎓 Use Cases
+##  Use Cases
 
 ### For Data Engineers
 - Monitor connector health and performance
@@ -338,22 +338,22 @@ ORDER BY change_detected_at DESC;
 - Budget optimization opportunities
 - Chargeback reporting
 
-## 🔒 Security Features
+##  Security Features
 
-- ✅ Private key authentication (more secure than passwords)
-- ✅ Environment variables for secrets
-- ✅ `.gitignore` configured for sensitive files
-- ✅ No hardcoded credentials
-- ✅ Role-based access control support
+-  Private key authentication (more secure than passwords)
+-  Environment variables for secrets
+-  `.gitignore` configured for sensitive files
+-  No hardcoded credentials
+-  Role-based access control support
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - [Fivetran Log Connector Documentation](https://fivetran.com/docs/logs/fivetran-log)
 - [Fivetran Log ERD](https://fivetran.com/connector-erd/fivetran_log)
 - [dbt Documentation](https://docs.getdbt.com/)
 - [Snowflake Key Pair Authentication](https://docs.snowflake.com/en/user-guide/key-pair-auth)
 
-## 🤝 Support
+## Support
 
 For questions or issues:
 - Check [SETUP_GUIDE.md](SETUP_GUIDE.md) for setup help
@@ -362,4 +362,4 @@ For questions or issues:
 
 ---
 
-**Built with ❤️ using dbt, Snowflake, and Fivetran**
+**Built with dbt, Snowflake, and Fivetran**
