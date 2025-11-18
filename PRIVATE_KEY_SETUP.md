@@ -2,10 +2,10 @@
 
 ## Why Use Private Key Instead of File Path?
 
-✅ **More Secure**: Key stored in environment variable, not in filesystem  
-✅ **Better for CI/CD**: Easy to inject secrets in deployment pipelines  
-✅ **Portable**: Works across different environments without file path issues  
-✅ **Version Control Safe**: Environment variables never committed to git
+ **More Secure**: Key stored in environment variable, not in filesystem  
+ **Better for CI/CD**: Easy to inject secrets in deployment pipelines  
+ **Portable**: Works across different environments without file path issues  
+ **Version Control Safe**: Environment variables never committed to git
 
 ## Converting Your Existing Private Key
 
@@ -99,14 +99,14 @@ Then use `rsa_key.p8` as your private key.
 
 ## Security Best Practices
 
-### ✅ DO:
+### DO:
 - Store private key in `.nao.env` (already in `.gitignore`)
 - Use different keys for dev/prod environments
 - Rotate keys periodically (every 90 days)
 - Set appropriate file permissions: `chmod 600 .nao.env`
 - Use Snowflake roles with least privilege
 
-### ❌ DON'T:
+### DON'T:
 - Commit `.nao.env` to git (it's already in `.gitignore`)
 - Share your private key via email/Slack
 - Use the same key across multiple environments
