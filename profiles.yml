@@ -6,10 +6,10 @@ default:
       account: a3209653506471-sales_eng_demo
       user: jason.chletsos@fivetran.com
       
-      # Key pair authentication
-      private_key_path: /Users/jason.chletsos/Downloads/rsa_key.pem
+      # Key pair authentication using environment variables
+      private_key_content: "{{ env_var('SNOWFLAKE_PRIVATE_KEY') }}"
       # If your key has a passphrase, uncomment and set it
-      # private_key_passphrase: your_passphrase_here
+      private_key_passphrase: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE', '') }}"
       
       role: SALES_DEMO_ROLE
       database: JASON_CHLETSOS
