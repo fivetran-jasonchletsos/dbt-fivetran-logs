@@ -29538,3 +29538,29 @@ select * from connector_health
 [0m14:56:03.118637 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105112f30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1010c6ea0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103c0c6b0>]}
 [0m14:56:03.118807 [debug] [MainThread]: Flushing usage events
 [0m14:56:03.336713 [debug] [MainThread]: An error was encountered while trying to flush usage events
+==================== 2025-11-18 13:41:59.958452 | 019a9733-6809-7731-b561-e16fe7b4d254 ====================
+dbt-fusion 2.0.0-preview.63
+   Loading profiles.yml
+ Debugging profile: dev
+ Debugging dbt version: 2.0.0-preview.63
+ Debugging platform: macos aarch64 (unix)
+ Debugging adapter type: snowflake (remote)
+ Debugging dependencies:
+  git: OK
+ Debugging connection:
+  "client_session_keep_alive": false,
+  "query_tag": "dbt-fivetran-analytics",
+  "account": "a3209653506471-sales_eng_demo",
+  "user": "jason.chletsos@fivetran.com",
+  "database": "JASON_CHLETSOS",
+  "warehouse": "DEFAULT",
+  "schema": "fivetran_analytics",
+  "role": "SALES_DEMO_ROLE"
+13:42:01.524685 [debug]: Query executed on node unknown:
+select 1 as id
+ Debugging connection test: OK
+  Debugged All checks passed!
+New version available 2.0.0-preview.68 (run `dbt system update`)
+13:42:02.073623 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' successfully for target 'dev' [2.1s]

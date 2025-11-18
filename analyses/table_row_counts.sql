@@ -20,44 +20,44 @@ SELECT 'Source: user' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.J
 UNION ALL
 
 -- Staging Views
-SELECT 'Staging: stg_fivetran_log__connection' as table_name, COUNT(*) as row_count FROM fivetran_analytics_stg_fivetran_log.stg_fivetran_log__connection
+SELECT 'Staging: stg_fivetran_log__connection' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.stg_fivetran_log.stg_fivetran_log__connection
 UNION ALL
-SELECT 'Staging: stg_fivetran_log__connector_type' as table_name, COUNT(*) as row_count FROM fivetran_analytics_stg_fivetran_log.stg_fivetran_log__connector_type
+SELECT 'Staging: stg_fivetran_log__connector_type' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.stg_fivetran_log.stg_fivetran_log__connector_type
 UNION ALL
-SELECT 'Staging: stg_fivetran_log__destination' as table_name, COUNT(*) as row_count FROM fivetran_analytics_stg_fivetran_log.stg_fivetran_log__destination
+SELECT 'Staging: stg_fivetran_log__destination' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.stg_fivetran_log.stg_fivetran_log__destination
 UNION ALL
-SELECT 'Staging: stg_fivetran_log__log' as table_name, COUNT(*) as row_count FROM fivetran_analytics_stg_fivetran_log.stg_fivetran_log__log
+SELECT 'Staging: stg_fivetran_log__log' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.stg_fivetran_log.stg_fivetran_log__log
 UNION ALL
-SELECT 'Staging: stg_fivetran_log__incremental_mar' as table_name, COUNT(*) as row_count FROM fivetran_analytics_stg_fivetran_log.stg_fivetran_log__incremental_mar
+SELECT 'Staging: stg_fivetran_log__incremental_mar' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.stg_fivetran_log.stg_fivetran_log__incremental_mar
 UNION ALL
-SELECT 'Staging: stg_fivetran_log__transformation_runs' as table_name, COUNT(*) as row_count FROM fivetran_analytics_stg_fivetran_log.stg_fivetran_log__transformation_runs
+SELECT 'Staging: stg_fivetran_log__transformation_runs' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.stg_fivetran_log.stg_fivetran_log__transformation_runs
 UNION ALL
-SELECT 'Staging: stg_fivetran_log__user' as table_name, COUNT(*) as row_count FROM fivetran_analytics_stg_fivetran_log.stg_fivetran_log__user
+SELECT 'Staging: stg_fivetran_log__user' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.stg_fivetran_log.stg_fivetran_log__user
 
 UNION ALL
 
 -- Intermediate Views
-SELECT 'Intermediate: int_fivetran_log__connector_details' as table_name, COUNT(*) as row_count FROM fivetran_analytics_int_fivetran_log.int_fivetran_log__connector_details
+SELECT 'Intermediate: int_fivetran_log__connector_details' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.int_fivetran_log.int_fivetran_log__connector_details
 UNION ALL
-SELECT 'Intermediate: int_fivetran_log__sync_events' as table_name, COUNT(*) as row_count FROM fivetran_analytics_int_fivetran_log.int_fivetran_log__sync_events
+SELECT 'Intermediate: int_fivetran_log__sync_events' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.int_fivetran_log.int_fivetran_log__sync_events
 UNION ALL
-SELECT 'Intermediate: int_fivetran_log__daily_api_calls' as table_name, COUNT(*) as row_count FROM fivetran_analytics_int_fivetran_log.int_fivetran_log__daily_api_calls
+SELECT 'Intermediate: int_fivetran_log__daily_api_calls' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.int_fivetran_log.int_fivetran_log__daily_api_calls
 UNION ALL
-SELECT 'Intermediate: int_fivetran_log__daily_active_rows' as table_name, COUNT(*) as row_count FROM fivetran_analytics_int_fivetran_log.int_fivetran_log__daily_active_rows
+SELECT 'Intermediate: int_fivetran_log__daily_active_rows' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.int_fivetran_log.int_fivetran_log__daily_active_rows
 
 UNION ALL
 
 -- Mart Tables
-SELECT 'Mart: fct_fivetran_connector_health' as table_name, COUNT(*) as row_count FROM fivetran_analytics_fivetran_analytics.fct_fivetran_connector_health
+SELECT 'Mart: fct_fivetran_connector_health' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.fivetran_analytics.fct_fivetran_connector_health
 UNION ALL
-SELECT 'Mart: fct_fivetran_monthly_active_rows' as table_name, COUNT(*) as row_count FROM fivetran_analytics_fivetran_analytics.fct_fivetran_monthly_active_rows
+SELECT 'Mart: fct_fivetran_monthly_active_rows' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.fivetran_analytics.fct_fivetran_monthly_active_rows
 UNION ALL
-SELECT 'Mart: fct_fivetran_connector_recommendations' as table_name, COUNT(*) as row_count FROM fivetran_analytics_fivetran_analytics.fct_fivetran_connector_recommendations
+SELECT 'Mart: fct_fivetran_connector_recommendations' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.fivetran_analytics.fct_fivetran_connector_recommendations
 UNION ALL
-SELECT 'Mart: fct_fivetran_executive_dashboard' as table_name, COUNT(*) as row_count FROM fivetran_analytics_fivetran_analytics.fct_fivetran_executive_dashboard
+SELECT 'Mart: fct_fivetran_executive_dashboard' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.fivetran_analytics.fct_fivetran_executive_dashboard
 UNION ALL
-SELECT 'Mart: fct_fivetran_error_monitoring' as table_name, COUNT(*) as row_count FROM fivetran_analytics_fivetran_analytics.fct_fivetran_error_monitoring
+SELECT 'Mart: fct_fivetran_error_monitoring' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.fivetran_analytics.fct_fivetran_error_monitoring
 UNION ALL
-SELECT 'Mart: fct_fivetran_sync_performance' as table_name, COUNT(*) as row_count FROM fivetran_analytics_fivetran_analytics.fct_fivetran_sync_performance
+SELECT 'Mart: fct_fivetran_sync_performance' as table_name, COUNT(*) as row_count FROM JASON_CHLETSOS.fivetran_analytics.fct_fivetran_sync_performance
 
 ORDER BY row_count DESC;

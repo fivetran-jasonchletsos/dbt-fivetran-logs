@@ -7,7 +7,7 @@ default:
       user: jason.chletsos@fivetran.com
       
       # Key pair authentication using environment variables
-      private_key_content: "{{ env_var('SNOWFLAKE_PRIVATE_KEY') }}"
+      private_key_path: "/Users/jason.chletsos/Downloads/rsa_key.pem"
       # If your key has a passphrase, uncomment and set it
       private_key_passphrase: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE', '') }}"
       
