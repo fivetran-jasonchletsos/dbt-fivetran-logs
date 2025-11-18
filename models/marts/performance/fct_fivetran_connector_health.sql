@@ -41,13 +41,14 @@ sync_metrics as (
     select
         connection_name,
         connector_name,
+        destination_name,
         count(*) as total_syncs,
         sum(case when sync_status = 'success' then 1 else 0 end) as successful_syncs,
         sum(case when sync_status = 'error' then 1 else 0 end) as failed_syncs,
         avg(sync_duration_seconds) as avg_sync_duration_seconds,
         max(sync_duration_seconds) as max_sync_duration_seconds
     from sync_performance
-    group by 1, 2
+    group by 1, 2, 3
 ),
 
 -- Calculate recent sync metrics (last 7 days if data exists)
@@ -55,6 +56,7 @@ recent_sync_metrics as (
     select
         connection_name,
         connector_name,
+        destination_name,
         count(*) as total_syncs_last_7d,
         sum(case when sync_status = 'success' then 1 else 0 end) as successful_syncs_last_7d,
         sum(case when sync_status = 'error' then 1 else 0 end) as failed_syncs_last_7d,
@@ -65,7 +67,7 @@ recent_sync_metrics as (
         end as success_rate_last_7d
     from sync_performance
     where sync_date >= dateadd(day, -7, current_date())
-    group by 1, 2
+    group by 1, 2, 3
 ),
 
 -- Combine all metrics
@@ -94,8 +96,14 @@ connector_health as (
             end
         ) as success_rate_last_7d
     from sync_status ss
-    left join sync_metrics sm on ss.connection_name = sm.connection_name and ss.connector_name = sm.connector_name
-    left join recent_sync_metrics rsm on ss.connection_name = rsm.connection_name and ss.connector_name = rsm.connector_name
+    left join sync_metrics sm 
+        on ss.connection_name = sm.connection_name 
+        and ss.connector_name = sm.connector_name
+        and ss.destination_name = sm.destination_name
+    left join recent_sync_metrics rsm 
+        on ss.connection_name = rsm.connection_name 
+        and ss.connector_name = rsm.connector_name
+        and ss.destination_name = rsm.destination_name
 )
 
 select * from connector_health

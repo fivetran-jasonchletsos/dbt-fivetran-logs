@@ -46,7 +46,7 @@ aggregated_activity as (
     group by 1, 2, 3, 4, 5, 6, 7, 8
 ),
 
--- Enrich with user information
+-- Enrich with user information and connector details
 enriched_user_activity as (
     select
         aa.activity_date,
@@ -59,9 +59,26 @@ enriched_user_activity as (
         aa.secondary_resource_type,
         aa.secondary_resource_name,
         aa.interaction_method,
-        aa.activity_count
+        aa.activity_count,
+        -- Add connector details when resource is a connector
+        case 
+            when aa.resource_type = 'connector' then cd.connection_name
+            else null
+        end as connector_name,
+        case 
+            when aa.resource_type = 'connector' then cd.connector_name
+            else null
+        end as connector_type,
+        case 
+            when aa.resource_type = 'connector' then cd.destination_name
+            else null
+        end as destination_name
     from aggregated_activity aa
     left join users u on aa.user_id = u.user_id
+    -- Join to connector details when resource is a connector
+    left join connector_details cd on 
+        aa.resource_type = 'connector' and 
+        aa.resource_name = cd.connection_id
 )
 
 select * from enriched_user_activity

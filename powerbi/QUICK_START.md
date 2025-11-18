@@ -1,10 +1,10 @@
 # Power BI Quick Start Guide
 
-**Get your first dashboard running in 30 minutes!**
+Get your first dashboard running in 30 minutes.
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 - [ ] Power BI Desktop installed ([Download here](https://powerbi.microsoft.com/desktop/))
 - [ ] Snowflake account credentials
@@ -81,7 +81,7 @@ Check the boxes next to these 5 tables (all UPPERCASE):
 
 ---
 
-## 📅 Step 3: Create Date Table (3 minutes)
+## Step 3: Create Date Table (2 minutes)
 
 ### 3.1 Create New Table
 1. Click **Modeling** tab
@@ -112,28 +112,77 @@ ADDCOLUMNS(
 
 ---
 
-## 🔗 Step 4: Create Relationships (3 minutes)
+## Step 4: Create Relationships (5 minutes)
 
 ### 4.1 Open Model View
 - Click the **Model** icon on the left sidebar (looks like three connected boxes)
 
-### 4.2 Create Relationships
-Drag and drop to create these relationships:
+### 4.2 Create Composite Key Column in Connector Health
 
-**From `FCT_FIVETRAN_CONNECTOR_HEALTH`:**
-```
-CONNECTION_NAME → FCT_FIVETRAN_SYNC_PERFORMANCE[CONNECTION_NAME]
-CONNECTION_NAME → FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[CONNECTION_NAME]
-CONNECTION_NAME → FCT_FIVETRAN_ERROR_MONITORING[CONNECTION_NAME]
-CONNECTION_NAME → FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[CONNECTION_NAME]
+**Important**: The connector health table has a composite key (CONNECTION_NAME + DESTINATION_NAME) because one connection can sync to multiple destinations.
+
+1. Select `FCT_FIVETRAN_CONNECTOR_HEALTH` table
+2. Click **Modeling** → **New Column**
+3. Paste this DAX formula:
+
+```dax
+ConnectionDestinationKey = 
+FCT_FIVETRAN_CONNECTOR_HEALTH[CONNECTION_NAME] & "|" & 
+FCT_FIVETRAN_CONNECTOR_HEALTH[DESTINATION_NAME]
 ```
 
-**From `DateTable`:**
+4. Press **Enter**
+
+### 4.3 Create Composite Key Columns in Other Tables
+
+Repeat for each fact table:
+
+**For FCT_FIVETRAN_SYNC_PERFORMANCE:**
+```dax
+ConnectionDestinationKey = 
+FCT_FIVETRAN_SYNC_PERFORMANCE[CONNECTION_NAME] & "|" & 
+FCT_FIVETRAN_SYNC_PERFORMANCE[DESTINATION_NAME]
 ```
-Date → FCT_FIVETRAN_SYNC_PERFORMANCE[SYNC_START_TIME] (date part)
-Date → FCT_FIVETRAN_ERROR_MONITORING[ERROR_TIMESTAMP] (date part)
-Date → FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[MEASURED_MONTH]
-Date → FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[CHANGE_TIMESTAMP] (date part)
+
+**For FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS:**
+```dax
+ConnectionDestinationKey = 
+FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[CONNECTION_NAME] & "|" & 
+FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[DESTINATION_NAME]
+```
+
+**For FCT_FIVETRAN_ERROR_MONITORING:**
+```dax
+ConnectionDestinationKey = 
+FCT_FIVETRAN_ERROR_MONITORING[CONNECTION_NAME] & "|" & 
+FCT_FIVETRAN_ERROR_MONITORING[DESTINATION_NAME]
+```
+
+**For FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY:**
+```dax
+ConnectionDestinationKey = 
+FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[CONNECTION_NAME] & "|" & 
+FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[DESTINATION_NAME]
+```
+
+### 4.4 Create Relationships Using Composite Keys
+
+Now drag and drop to create these relationships:
+
+**From `FCT_FIVETRAN_CONNECTOR_HEALTH[ConnectionDestinationKey]` to:**
+```
+→ FCT_FIVETRAN_SYNC_PERFORMANCE[ConnectionDestinationKey]
+→ FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[ConnectionDestinationKey]
+→ FCT_FIVETRAN_ERROR_MONITORING[ConnectionDestinationKey]
+→ FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[ConnectionDestinationKey]
+```
+
+**From `DateTable[Date]` to:**
+```
+→ FCT_FIVETRAN_SYNC_PERFORMANCE[SYNC_START_TIME] (date part)
+→ FCT_FIVETRAN_ERROR_MONITORING[ERROR_TIMESTAMP] (date part)
+→ FCT_FIVETRAN_MONTHLY_ACTIVE_ROWS[MEASURED_MONTH]
+→ FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[CHANGE_DETECTED_AT] (date part)
 ```
 
 **Relationship Settings:**
@@ -141,9 +190,15 @@ Date → FCT_FIVETRAN_SCHEMA_CHANGE_HISTORY[CHANGE_TIMESTAMP] (date part)
 - Cross filter direction: **Single**
 - Make this relationship active: **✓**
 
+**Alternative Approach (Simpler but less accurate):**
+If you prefer not to use composite keys, you can create relationships using just `CONNECTION_NAME`, but be aware that:
+- One connection may sync to multiple destinations
+- Metrics will be aggregated across all destinations for that connection
+- This is fine for high-level dashboards but less accurate for detailed analysis
+
 ---
 
-## 📏 Step 5: Import DAX Measures (5 minutes)
+## Step 5: Import DAX Measures (5 minutes)
 
 ### 5.1 Open Measures File
 - Open `powerbi/fivetran_measures.dax` in a text editor
@@ -340,7 +395,7 @@ Rows Synced = SUM(fct_fivetran_sync_performance[rows_synced])
 
 ---
 
-## 💾 Step 9: Save & Publish (2 minutes)
+## Step 9: Save and Publish (2 minutes)
 
 ### 9.1 Save Locally
 1. Click **File** → **Save**
@@ -442,6 +497,6 @@ You now have a working Fivetran analytics dashboard with:
 
 ---
 
-**Total Time**: ~30 minutes  
-**Difficulty**: Beginner  
-**Result**: Production-ready dashboard.
+Total Time: 30 minutes  
+Difficulty: Beginner  
+Result: Production-ready dashboard
